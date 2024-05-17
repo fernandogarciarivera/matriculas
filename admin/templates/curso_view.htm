@@ -1,0 +1,305 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+	</head>
+
+	<body class="{$stylename} function-view" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="view_header" data-itemid="view_header" {$item_view_header} data-pageid="{$pageid}" >{$pagetitlelabel curso view}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN idCurso_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_idCurso}  r-vertical-field" data-fieldname="idCurso" data-signal-error-for="idCurso{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="idCurso" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_idCurso}">
+		
+		{BEGIN idCurso_label}{$label curso idCurso }{END idCurso_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$idCurso_value}	</div>
+
+		
+</div>
+
+
+{END idCurso_fieldblock}
+											
+{BEGIN NombreCurso_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_NombreCurso}  r-vertical-field" data-fieldname="NombreCurso" data-signal-error-for="NombreCurso{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="NombreCurso" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_NombreCurso}">
+		
+		{BEGIN NombreCurso_label}{$label curso NombreCurso }{END NombreCurso_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$NombreCurso_value}	</div>
+
+		
+</div>
+
+
+{END NombreCurso_fieldblock}
+											
+{BEGIN Seccion_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Seccion}  r-vertical-field" data-fieldname="Seccion" data-signal-error-for="Seccion{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Seccion" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Seccion}">
+		
+		{BEGIN Seccion_label}{$label curso Seccion }{END Seccion_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Seccion_value}	</div>
+
+		
+</div>
+
+
+{END Seccion_fieldblock}
+											
+{BEGIN NRC_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_NRC}  r-vertical-field" data-fieldname="NRC" data-signal-error-for="NRC{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="NRC" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_NRC}">
+		
+		{BEGIN NRC_label}{$label curso NRC }{END NRC_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$NRC_value}	</div>
+
+		
+</div>
+
+
+{END NRC_fieldblock}
+											
+{BEGIN Academia_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Academia}  r-vertical-field" data-fieldname="Academia" data-signal-error-for="Academia{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Academia" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Academia}">
+		
+		{BEGIN Academia_label}{$label curso Academia }{END Academia_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Academia_value}	</div>
+
+		
+</div>
+
+
+{END Academia_fieldblock}
+											
+{BEGIN DiasClase_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_DiasClase}  r-vertical-field" data-fieldname="DiasClase" data-signal-error-for="DiasClase{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="DiasClase" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_DiasClase}">
+		
+		{BEGIN DiasClase_label}{$label curso DiasClase }{END DiasClase_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$DiasClase_value}	</div>
+
+		
+</div>
+
+
+{END DiasClase_fieldblock}
+											
+{BEGIN HorasClase_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_HorasClase}  r-vertical-field" data-fieldname="HorasClase" data-signal-error-for="HorasClase{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="HorasClase" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_HorasClase}">
+		
+		{BEGIN HorasClase_label}{$label curso HorasClase }{END HorasClase_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$HorasClase_value}	</div>
+
+		
+</div>
+
+
+{END HorasClase_fieldblock}
+											
+{BEGIN idCicloEscolar_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_idCicloEscolar}  r-vertical-field" data-fieldname="idCicloEscolar" data-signal-error-for="idCicloEscolar{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="idCicloEscolar" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_idCicloEscolar}">
+		
+		{BEGIN idCicloEscolar_label}{$label curso idCicloEscolar }{END idCicloEscolar_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$idCicloEscolar_value}	</div>
+
+		
+</div>
+
+
+{END idCicloEscolar_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-6
+	">
+	 
+		{BEGIN back_button}
+<span data-itemtype="view_back_list" data-itemid="view_back_list" {$item_view_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Volver a la lista			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN close_button}
+<span data-itemtype="view_close" data-itemid="view_close" {$item_view_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" href="#" {$closebutton_attrs} >
+							Cerrar ventana			</a>
+</span>
+{END close_button}
+	</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	">
+	 
+		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown dropup">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+							<span class="glyphicon glyphicon-menu-hamburger"></span>
+									<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN edit_page_button}
+	<li data-itemtype="view_edit" data-itemid="view_edit" {$item_view_edit} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$edit_page_button_attrs}  title="" >
+				
+		Editar		
+		</a>
+	</li>
+{END edit_page_button}
+					</ul>
+	</span>
+</span>
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>
