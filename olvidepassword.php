@@ -2,13 +2,13 @@
 <html data-bs-theme="light" lang="es">
 
 <?php
-    include ('mihead.php');
+    include ('funciones/mihead.php');
 ?>
 
 <body>
     
 	<?php
-		include ('header.php');
+		include ('funciones/header.php');
 	?>
 	
     <section class="py-4 py-md-5 mt-5">
@@ -28,7 +28,7 @@
     </section>
     
     <?php
-		include ('footer.php');
+		include ('funciones/footer.php');
 	?>
 	
 </body>

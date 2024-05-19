@@ -6,6 +6,8 @@ function obtenerProfesoresAleatorios($conexion) {
     $profesores = [];
     if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
+			// Asegurarse de que los datos estén en UTF-8
+			$fila = array_map('utf8_encode', $fila);
             $profesores[] = $fila;
         }
     }
@@ -18,6 +20,7 @@ function obtenerProfesores($conexion, $idProfesor) {
     $profesores = [];
     if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
+			$fila = array_map('utf8_encode', $fila);
             $profesores[] = $fila;
         }
     }
@@ -65,6 +68,7 @@ function obtenerCursosAleatorios($conexion) {
     $cursos = [];
     if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
+			$fila = array_map('utf8_encode', $fila);
             $cursos[] = $fila;
         }
     }
@@ -77,6 +81,7 @@ function obtenerCursos($conexion, $idCurso) {
     $cursos = [];
     if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
+			$fila = array_map('utf8_encode', $fila);
             $cursos[] = $fila;
         }
     }
@@ -104,7 +109,7 @@ function mostrarCursos($cursos, $current_page) {
 			</div>';
 		} else if ($current_page == 'cursos.php') {
 			$foto = 'assets/img/cursos/' . $imagenes_demo[array_rand($imagenes_demo)];
-			if ($curso['miFoto']) $foto = 'assets/img/cursos/' . $elemento['miFoto'];
+			if ($curso['miFoto']) $foto = 'assets/img/cursos/' . $curso['miFoto'];
 			
 			$botonesComun = '<div class="bs-icon-sm bs-icon-rounded bs-icon-secondary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon me-2" data-bs-toggle="tooltip" data-bss-tooltip="" aria-label="Docentes y Horarios" data-bs-original-title="Docentes y Horarios">
 				<button id="' .$curso['idCurso']. '" name="infoIdCurso" class="btn btn-sm px-0" type="button" onclick="mostrarInfoCurso(' . $curso['idCurso'] . ')">
@@ -152,11 +157,84 @@ function mostrarCursos($cursos, $current_page) {
     }
 }
 
+function registrarAlumno($conexion, $nombres, $apellidos, $email, $password) {
+    // Validar que el email no esté registrado
+    $consulta = "SELECT * FROM alumno WHERE Email = '$email'";
+	$resultado = $conexion->query($consulta);
+    if ($resultado->num_rows > 0) {
+        return "El email ya está registrado.";
+    }
+	
+	$consulta = "SELECT * FROM alumno WHERE Password = '$password'";
+	$resultado = $conexion->query($consulta);
+    if ($resultado->num_rows > 0) {
+        return "El password debe ser unico.";
+    }
+    
+    // Insertar nuevo alumno
+    $consulta = "INSERT INTO alumno (Nombres, Apellidos, Email, Password, Carrera) VALUES ('$nombres', '$apellidos', '$email', '$password','')";
+    if ($conexion->query($consulta)) {
+		return '<p>Registro exitoso <a href="login.php">Ingresa aquí&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-arrow-narrow-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l14 0"></path><path d="M15 16l4 -4"></path><path d="M15 8l4 4"></path></svg></a>.</p>';
+    } else {
+        return "Error en el registro.";
+    }
+}
+
+function loginAccesoMatricula($conexion, $email, $password) {
+	// Validar que el email no esté registrado
+    $consulta = "SELECT * FROM alumno WHERE Email = '$email' and Password = '$password'";
+	$resultado = $conexion->query($consulta);
+    if ($resultado->num_rows > 0) {
+		while ($fila = $resultado->fetch_assoc()) {
+			$fila = array_map('utf8_encode', $fila);
+			$_SESSION['idAlumno'] = $fila['idAlumno'];
+			$_SESSION['Nombres'] = $fila['Nombres']; 
+			$_SESSION['Apellidos'] = $fila['Apellidos'];
+			$_SESSION['Email'] = $fila['Email'];
+			$_SESSION['usuario'] = $fila['idAlumno'];
+
+			echo $_SESSION['idAlumno'];
+
+        }
+        return "Registro exitoso.";
+    } else {
+		return "Error de Login.";
+	}
+}
+
+function grabarMatricula($conexion, $idAlumno, $selectedHorarios) {
+    // Iniciar una transacción
+    $conexion->begin_transaction();
+    try {
+        // Insertar en la tabla matriculacab
+        $consultaCabecera = "INSERT INTO matriculacab (idAlumno, documento) VALUES ('$idAlumno', uuid())";
+        if ($conexion->query($consultaCabecera)) {
+            $idMatriculaCab = $conexion->insert_id;
+        } else {
+            throw new Exception("Error al insertar en matriculacab.");
+        }
+        // Insertar en la tabla alumno_profesor_curso para cada horario seleccionado
+        foreach ($selectedHorarios as $horario) {
+            $idCursoDicta = $horario['idCursoDicta'];
+            $idCurso = $horario['idCurso'];
+            $idProfesor = $horario['idProfesor'];
+            $idHorario = $horario['idHorario'];
+
+            $consultaDetalle = "INSERT INTO alumno_profesor_curso (IdmatriculaCab, idAlumno, idCursoDicta, idCurso, idProfesor, estadoCurso, estadoMatricula) VALUES ('$idMatriculaCab', '$idAlumno', '$idCursoDicta', '$idCurso', '$idProfesor', 0, 0)";
+
+            if (!$conexion->query($consultaDetalle)) {
+                throw new Exception("Error al insertar en alumno_profesor_curso.");
+            }
+        }
+        // Confirmar la transacción
+        $conexion->commit();
+        return "Matrícula registrada exitosamente.";
+    } catch (Exception $e) {
+        // Deshacer la transacción en caso de error
+        $conexion->rollback();
+        return "Error al registrar la matrícula: " . $e->getMessage();
+    }
+}
 
 ?>
 
-<script>
-function redirigirACurso(idCurso) {
-    window.location.href = 'cursos.php?idCurso=' + idCurso;
-}
-</script>

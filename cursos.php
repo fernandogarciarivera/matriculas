@@ -2,28 +2,13 @@
 <html data-bs-theme="light" lang="es">
 
 <?php
-    include ('mihead.php');
+    include ('funciones/mihead.php');
 ?>
 
 <body>
-    
-	<!-- Modal para mostrar información del curso -->
-    <div class="modal fade" id="infoCursoModal" tabindex="-1" aria-labelledby="infoCursoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="infoCursoModalLabel">Información del Curso</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="infoCursoModalBody">
-                    <!-- Contenido cargado json -->
-                </div>
-            </div>
-        </div>
-    </div>
 	
 	<?php
-		include ('header.php');
+		include ('funciones/header.php');
 	?>
 	
     <section class="py-5 mt-5">
@@ -41,7 +26,7 @@
     </section>
     
     <?php
-		include ('footer.php');
+		include ('funciones/footer.php');
 	?>
 	
 </body>
@@ -61,7 +46,38 @@
 			}
 		});
 	}
-</script>
+
+        // Guardar la selección del curso en localStorage
+        function guardarSeleccion(idCurso) {
+            let cursosSeleccionados = JSON.parse(localStorage.getItem('cursosSeleccionados')) || [];
+            if (!cursosSeleccionados.includes(idCurso)) {
+                cursosSeleccionados.push(idCurso);
+                localStorage.setItem('cursosSeleccionados', JSON.stringify(cursosSeleccionados));
+            }
+        }
+
+        // Restaurar la selección del curso desde localStorage
+        function restaurarSeleccion() {
+            let cursosSeleccionados = JSON.parse(localStorage.getItem('cursosSeleccionados')) || [];
+            cursosSeleccionados.forEach(idCurso => {
+                let boton = document.getElementById(idCurso);
+                if (boton) {
+                    boton.classList.add('seleccionado');
+                }
+            });
+        }
+
+        // Llamar a la función para restaurar la selección cuando se carga la página
+        window.onload = function() {
+            restaurarSeleccion();
+        };
+
+        // Manejar el clic del botón "matricularIdCurso"
+        function manejarMatriculacion(idCurso) {
+            guardarSeleccion(idCurso);
+            document.getElementById(idCurso).classList.add('seleccionado');
+        }
+    </script>
 
 
 </html>

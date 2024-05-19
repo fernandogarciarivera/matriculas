@@ -45,3 +45,9 @@
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/bs-init.js"></script>
 <script src="assets/js/startup-modern.js"></script>
+
+<script>
+	function redirigirACurso(idCurso) {
+		window.location.href = 'cursos.php?idCurso=' + idCurso;
+	}
+</script>
