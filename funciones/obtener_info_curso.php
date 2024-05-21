@@ -32,9 +32,9 @@
 		while ($fila = $resultado->fetch_assoc()) {
 			$fila = array_map('utf8_encode', $fila);
 			$output .= '<tr>
-							<td>' . $fila['Docente'] . '</td>
-							<td>' . $fila['NombreCurso'] . '</td>
-							<td>' . $fila['Academia'] . '</td>
+							<td>' . htmlentities($fila['Docente']) . '</td>
+							<td>' . htmlentities($fila['NombreCurso']) . '</td>
+							<td>' . htmlentities($fila['Academia']) . '</td>
 							<td>' . $fila['txtDia'] . '</td>
 							<td>' . $fila['HorIni'] . '</td>
 							<td>' . $fila['HorFin'] . '</td>

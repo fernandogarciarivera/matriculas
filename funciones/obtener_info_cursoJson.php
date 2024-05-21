@@ -31,7 +31,7 @@ if ($resultado->num_rows > 0) {
         if (!isset($cursos[$idCursoDicta])) {
             $cursos[$idCursoDicta] = [
                 'idCursoDicta' => $idCursoDicta,
-                'NombreCurso' => $fila['NombreCurso'],
+                'NombreCurso' => htmlentities($fila['NombreCurso']),
                 'Seccion' => $fila['Seccion'],
                 'idCicloEscolar' => $fila['idCicloEscolar'],
                 'Docentes' => []
@@ -42,7 +42,7 @@ if ($resultado->num_rows > 0) {
         if (!isset($cursos[$idCursoDicta]['Docentes'][$idProfesor])) {
             $cursos[$idCursoDicta]['Docentes'][$idProfesor] = [
                 'idProfesor' => $idProfesor,
-                'Docente' => $fila['Docente'],
+                'Docente' => htmlentities($fila['Docente']),
                 'Horarios' => []
             ];
         }
