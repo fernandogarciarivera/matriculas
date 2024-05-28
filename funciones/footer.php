@@ -15,10 +15,12 @@
 			<div class="col-sm-6 col-md-3 text-lg-start d-flex flex-column">
 				<h3 class="fs-6 fw-bold">Integrantes de Grupo</h3>
 				<ul class="list-unstyled" style="font-size: 14px;">
-					<li class="text-black-100"><a href="#">José Portella A.</a></li>
-					<li class="text-black-100"><a class="text-black-100" href="#">Fernando A. García Rivera</a></li>
-					<li class="text-black-100"><a href="#">Francois Andy Ibarra Yzaguirre</a></li>
-					<li class="text-black-100"><a href="#">Luigi Giacomo Spózzito Lozada</a></li>
+					<li class="text-black-100"><a href="#">José Antonio Portella Aponte</a></li>
+					<li class="text-black-100"><a href="#">García Rivera Fernando A.</a></li>
+					<li class="text-black-100"><a href="#">Ibarra, Yzaguirre Francois Andy</a></li>
+					<li class="text-black-100"><a href="#">Spózzito Lozada Luigi Giacomo</a></li>
+					<li class="text-black-100"><a href="#">Piscoya Guevara Miguel Angel Giuseppe</a></li>
+					<li class="text-black-100"><a href="#">Arana valencia yrvins Alberto</a></li>
 				</ul>
 			</div>
 		</div>
