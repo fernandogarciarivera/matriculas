@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de datos: `matriculas`
@@ -101,19 +101,19 @@ DELIMITER ;
 DROP TABLE IF EXISTS `alumno`;
 CREATE TABLE IF NOT EXISTS `alumno` (
   `idAlumno` int(11) NOT NULL AUTO_INCREMENT,
-  `Nombres` varchar(45) NOT NULL,
-  `Apellidos` varchar(45) NOT NULL,
-  `miFoto` varchar(100) DEFAULT 'NULL',
-  `Carrera` varchar(45) NOT NULL,
-  `Email` varchar(45) DEFAULT 'NULL',
-  `Celular` char(10) DEFAULT 'NULL',
-  `Gthub` varchar(45) DEFAULT 'NULL',
-  `Web` varchar(45) DEFAULT 'NULL',
-  `Password` varchar(45) NOT NULL DEFAULT '1234',
+  `Nombres` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `Apellidos` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `miFoto` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Carrera` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `Email` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Celular` char(10) DEFAULT NULL,
+  `Gthub` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Web` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Password` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL DEFAULT '1234',
   PRIMARY KEY (`idAlumno`),
   UNIQUE KEY `idAlumno` (`idAlumno`),
   UNIQUE KEY `Password` (`Password`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `alumno`
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `alumno_profesor_curso` (
   KEY `FKalumno_pro554239` (`IdmatriculaCab`),
   KEY `FKAlumno_Pro79070` (`idCursoDicta`,`idProfesor`,`idCurso`),
   KEY `FKAlumno_Pro325116` (`idAlumno`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 --
 -- Volcado de datos para la tabla `alumno_profesor_curso`
@@ -192,10 +192,10 @@ CREATE TABLE IF NOT EXISTS `asistencia` (
   `idAlumno` int(11) NOT NULL,
   `DiaClase` date NOT NULL,
   `Asitio` tinyint(1) DEFAULT NULL,
-  `info` varchar(255) DEFAULT NULL,
+  `info` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   KEY `FKasistencia952443` (`idMatricula`,`idAlumno`),
   KEY `FKAsistencia59900` (`idMatricula`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 -- --------------------------------------------------------
 
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `calificacion` (
   KEY `FKcalificaci941586` (`idEvaluacion`,`idCurso`),
   KEY `FKCalificaci673614` (`idMatricula`),
   KEY `FKCalificaci845722` (`idEvaluacion`,`idCurso`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 -- --------------------------------------------------------
 
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `cicloescolar` (
   `FechaInicio` date NOT NULL,
   `FechaTermino` date NOT NULL,
   PRIMARY KEY (`idCicloEscolar`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 --
 -- Volcado de datos para la tabla `cicloescolar`
@@ -254,12 +254,12 @@ INSERT INTO `cicloescolar` (`idCicloEscolar`, `FechaInicio`, `FechaTermino`) VAL
 DROP TABLE IF EXISTS `curso`;
 CREATE TABLE IF NOT EXISTS `curso` (
   `idCurso` int(11) NOT NULL AUTO_INCREMENT,
-  `NombreCurso` varchar(45) NOT NULL,
+  `NombreCurso` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `Seccion` char(4) NOT NULL,
   `NRC` char(4) NOT NULL,
-  `miFoto` varchar(100) DEFAULT 'NULL',
-  `Academia` varchar(45) NOT NULL,
-  `bitacora` varchar(500) NOT NULL,
+  `miFoto` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Academia` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `bitacora` varchar(500) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `DiasClase` int(11) NOT NULL,
   `HorasClase` int(11) NOT NULL,
   `idCicloEscolar` char(5) NOT NULL,
@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `curso` (
   UNIQUE KEY `NRC` (`NRC`),
   KEY `FKcurso363176` (`idCicloEscolar`),
   KEY `FKCurso59519` (`idCicloEscolar`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 --
 -- Volcado de datos para la tabla `curso`
@@ -314,11 +314,11 @@ INSERT INTO `curso` (`idCurso`, `NombreCurso`, `Seccion`, `NRC`, `miFoto`, `Acad
 DROP TABLE IF EXISTS `diafestivo`;
 CREATE TABLE IF NOT EXISTS `diafestivo` (
   `DiaFestivo` date DEFAULT NULL,
-  `Motivo` varchar(45) DEFAULT 'NULL',
+  `Motivo` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `idCicloEscolar` char(5) NOT NULL,
   KEY `FKdiafestivo221864` (`idCicloEscolar`),
   KEY `FKDiaFestivo347472` (`idCicloEscolar`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 -- --------------------------------------------------------
 
@@ -330,13 +330,13 @@ DROP TABLE IF EXISTS `evaluacion`;
 CREATE TABLE IF NOT EXISTS `evaluacion` (
   `idEvaluacion` int(11) NOT NULL AUTO_INCREMENT,
   `idCurso` int(11) NOT NULL,
-  `Actividad` varchar(45) NOT NULL,
+  `Actividad` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `Porcentaje` int(11) NOT NULL,
   PRIMARY KEY (`idEvaluacion`,`idCurso`),
   UNIQUE KEY `idEvaluacion` (`idEvaluacion`),
   KEY `FKevaluacion931468` (`idCurso`),
   KEY `FKEvaluacion982686` (`idCurso`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 -- --------------------------------------------------------
 
@@ -351,14 +351,14 @@ CREATE TABLE IF NOT EXISTS `horarios` (
   `idProfesor` int(11) NOT NULL,
   `idCurso` int(11) NOT NULL,
   `numDia` int(11) DEFAULT NULL,
-  `txtDia` varchar(10) DEFAULT 'NULL',
+  `txtDia` varchar(10) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `HorIni` time DEFAULT NULL,
   `HorFin` time DEFAULT NULL,
   PRIMARY KEY (`IdHorario`),
   UNIQUE KEY `IdHorario` (`IdHorario`),
   KEY `FKhorarios931373` (`idCursoDicta`,`idProfesor`,`idCurso`),
   KEY `FKHorarios834068` (`idCursoDicta`,`idProfesor`,`idCurso`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 --
 -- Volcado de datos para la tabla `horarios`
@@ -419,13 +419,13 @@ INSERT INTO `horarios` (`IdHorario`, `idCursoDicta`, `idProfesor`, `idCurso`, `n
 DROP TABLE IF EXISTS `matriculacab`;
 CREATE TABLE IF NOT EXISTS `matriculacab` (
   `IdmatriculaCab` int(10) NOT NULL AUTO_INCREMENT,
-  `documento` varchar(100) DEFAULT NULL,
+  `documento` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `idAlumno` int(11) NOT NULL,
   `fechaRegistro` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`IdmatriculaCab`),
   UNIQUE KEY `IdmatriculaCab` (`IdmatriculaCab`),
   KEY `FKmatriculaC647858` (`idAlumno`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 --
 -- Volcado de datos para la tabla `matriculacab`
@@ -446,14 +446,14 @@ INSERT INTO `matriculacab` (`IdmatriculaCab`, `documento`, `idAlumno`, `fechaReg
 DROP TABLE IF EXISTS `profesor`;
 CREATE TABLE IF NOT EXISTS `profesor` (
   `idProfesor` int(11) NOT NULL AUTO_INCREMENT,
-  `NomProfesor` varchar(45) NOT NULL,
-  `ApellidosProfesor` varchar(45) NOT NULL,
-  `miFoto` varchar(100) DEFAULT 'NULL',
+  `NomProfesor` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `ApellidosProfesor` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `miFoto` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `sexo` varchar(1) DEFAULT 'H',
   `bitacora` text,
   PRIMARY KEY (`idProfesor`),
   UNIQUE KEY `idProfesor` (`idProfesor`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 --
 -- Volcado de datos para la tabla `profesor`
@@ -492,7 +492,7 @@ CREATE TABLE IF NOT EXISTS `profesor_curso` (
   KEY `FKprofesor_c717960` (`idCurso`),
   KEY `FKProfesor_C656681` (`idProfesor`),
   KEY `FKProfesor_C154041` (`idCurso`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
 
 --
 -- Volcado de datos para la tabla `profesor_curso`

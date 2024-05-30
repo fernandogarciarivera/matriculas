@@ -1,0 +1,14 @@
+
+554298806649-k6b3n83n3hqpuioddc8t0liplvbf8si6.apps.googleusercontent.com
+
+ID de cliente
+554298806649-k6b3n83n3hqpuioddc8t0liplvbf8si6.apps.googleusercontent.com
+
+Secreto del cliente
+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
+
+Fecha de creación
+30 de mayo de 2024, 11:07:58 GMT-5
+
+Estado
+Habilitada

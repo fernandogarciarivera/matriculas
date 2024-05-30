@@ -3,6 +3,9 @@
 
 <?php
     include ('funciones/mihead.php');
+
+	include('funciones/configLogin.php');
+	$login_button = '';
 	
 	$error = "";
 	$mensaje = "";
@@ -21,6 +24,7 @@
 			$error = $mensaje;
 		}
 	}
+	
 ?>
 
 <body>
@@ -46,6 +50,11 @@
 						</div>
 					<?php endif; ?>
                     <form method="post" data-bs-theme="light">
+
+						<a href="<?php echo htmlspecialchars($authUrl); ?>">
+							<img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" alt="Ingresar con Google">
+						</a>
+
                         <div class="mb-3"><input class="shadow form-control" type="email" id="email" name="email" placeholder="Email"></div>
                         <div class="mb-3"><input class="shadow form-control" type="password" id="password" name="password" placeholder="Password"></div>
                         <div class="mb-5"><button class="btn btn-primary shadow" type="submit">Log in</button></div>
@@ -63,3 +72,4 @@
 </body>
 
 </html>
+

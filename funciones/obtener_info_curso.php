@@ -1,4 +1,8 @@
 <?php
+	header('Content-Type: text/html; charset=utf-8');
+	mb_internal_encoding('UTF-8');
+	ini_set("default_charset", "UTF-8");
+
 	require_once 'conexion.php';
 
 	// Obtener el ID del curso
