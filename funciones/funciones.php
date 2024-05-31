@@ -10,7 +10,7 @@ function obtenerProfesoresAleatorios($conexion) {
     if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
 			// Asegurarse de que los datos estén en UTF-8
-			$fila = array_map('utf8_encode', $fila);
+			//$fila = array_map('utf8_encode', $fila);
             $profesores[] = $fila;
         }
     }
@@ -23,7 +23,7 @@ function obtenerProfesores($conexion, $idProfesor) {
     $profesores = [];
     if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
-			$fila = array_map('utf8_encode', $fila);
+			//$fila = array_map('utf8_encode', $fila);
             $profesores[] = $fila;
         }
     }
@@ -37,7 +37,7 @@ function mostrarProfesores($profesores, $current_page) {
 			echo '<div class="col text-center text-md-start">
 				<div class="d-flex justify-content-center align-items-center justify-content-md-start">
 					<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-school fs-3 text-primary bg-secondary"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"></path><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"></path></svg>
-					<h5 class="fw-bold mb-0 ms-2">' . utf8_decode($profesor['Docente']) . '</h5>
+					<h5 class="fw-bold mb-0 ms-2">' . htmlspecialchars($profesor['Docente']) . '</h5>
 					<img class="float-start rounded-circle" src="' . $foto . '" width="60" height="60">
 				</div>
 				<p class="text-muted my-3">' . $profesor['bitacora'] . '</p>
@@ -47,8 +47,8 @@ function mostrarProfesores($profesores, $current_page) {
 				<div class="card border-light border-1 d-flex justify-content-center p-2 m-0">
 					<div class="card-body">
 						<div><img class="float-start rounded-circle" src="' . $foto . '" width="60" height="60">
-							<h4 class="fw-bold text-start">' . utf8_decode($profesor['Docente']) . '</h4>
-							<p class="text-muted">' . utf8_decode($profesor['bitacora']) . '</p>
+							<h4 class="fw-bold text-start">' . htmlspecialchars($profesor['Docente']) . '</h4>
+							<p class="text-muted">' . htmlspecialchars($profesor['bitacora']) . '</p>
 						</div>
 						<div class="d-flex">
 							<div class="bs-icon-sm bs-icon-rounded bs-icon-secondary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon me-2" data-bs-toggle="tooltip" data-bss-tooltip="" aria-label="Cursos que Imparte" data-bs-original-title="Cursos que Imparte">
@@ -71,7 +71,7 @@ function obtenerCursosAleatorios($conexion) {
     $cursos = [];
     if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
-			$fila = array_map('utf8_encode', $fila);
+			//$fila = array_map('utf8_encode', $fila);
             $cursos[] = $fila;
         }
     }
@@ -84,7 +84,7 @@ function obtenerCursos($conexion, $idCurso) {
     $cursos = [];
     if ($resultado->num_rows > 0) {
         while ($fila = $resultado->fetch_assoc()) {
-			$fila = array_map('utf8_encode', $fila);
+			//$fila = array_map('utf8_encode', $fila);
             $cursos[] = $fila;
         }
     }
@@ -103,8 +103,8 @@ function mostrarCursos($cursos, $current_page) {
 							<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-blockquote"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M6 15h15"></path><path d="M21 19h-15"></path><path d="M15 11h6"></path><path d="M21 7h-6"></path><path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path><path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2"></path></svg>
 						</div>
 						<div>
-							<h4 class="fw-bold">' .utf8_decode($curso['NombreCurso']). '</h4>
-							<p class="text-muted">' .utf8_decode($curso['bitacora']). '</p>
+							<h4 class="fw-bold">' .htmlspecialchars($curso['NombreCurso']). '</h4>
+							<p class="text-muted">' .htmlspecialchars($curso['bitacora']). '</p>
 							<button id="' .$curso['idCurso']. '" name="irIdCurso" class="btn btn-sm px-0" type="button" onclick="redirigirACurso(' . $curso['idCurso'] . ')">Mas Información&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-arrow-right"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path></svg></button>
 						</div>
 					</div>
@@ -132,8 +132,8 @@ function mostrarCursos($cursos, $current_page) {
 						</div>
 						<div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
 							<div>
-								<h5 class="fs-3 fw-bold mb-4">' .utf8_decode($curso['NombreCurso']). '</h5>
-								<p class="text-muted mb-4">' .utf8_decode($curso['bitacora']). '</p>
+								<h5 class="fs-3 fw-bold mb-4">' .htmlspecialchars($curso['NombreCurso']). '</h5>
+								<p class="text-muted mb-4">' .htmlspecialchars($curso['bitacora']). '</p>
 								<div class="d-flex">
 									'.$botonesComun.'
 								</div>
@@ -147,8 +147,8 @@ function mostrarCursos($cursos, $current_page) {
 						</div>
 						<div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
 							<div class="ms-md-3">
-								<h5 class="fs-3 fw-bold mb-4">' .utf8_decode($curso['NombreCurso']). '</h5>
-								<p class="text-muted mb-4">' .utf8_decode($curso['bitacora']). '</p>
+								<h5 class="fs-3 fw-bold mb-4">' .htmlspecialchars($curso['NombreCurso']). '</h5>
+								<p class="text-muted mb-4">' .htmlspecialchars($curso['bitacora']). '</p>
 								<div class="d-flex">
 									'.$botonesComun.'
 								</div>
@@ -189,11 +189,11 @@ function loginAccesoMatricula($conexion, $email, $password) {
 	$resultado = $conexion->query($consulta);
     if ($resultado->num_rows > 0) {
 		while ($fila = $resultado->fetch_assoc()) {
-			$fila = array_map('utf8_encode', $fila);
+			//$fila = array_map('utf8_encode', $fila);
 			$_SESSION['idAlumno'] = $fila['idAlumno'];
-			$_SESSION['Nombres'] = utf8_decode($fila['Nombres']); 
-			$_SESSION['Apellidos'] = utf8_decode($fila['Apellidos']);
-			$_SESSION['Email'] = utf8_decode($fila['Email']);
+			$_SESSION['Nombres'] = htmlspecialchars($fila['Nombres']); 
+			$_SESSION['Apellidos'] = htmlspecialchars($fila['Apellidos']);
+			$_SESSION['Email'] = htmlspecialchars($fila['Email']);
 			$_SESSION['usuario'] = $fila['idAlumno'];
 
 			echo $_SESSION['idAlumno'];

@@ -34,7 +34,7 @@
 		
 		// Recorrer los resultados y generar tener el output
 		while ($fila = $resultado->fetch_assoc()) {
-			$fila = array_map('utf8_encode', $fila);
+			//$fila = array_map('utf8_encode', $fila);
 			$output .= '<tr>
 							<td>' . htmlentities($fila['Docente']) . '</td>
 							<td>' . htmlentities($fila['NombreCurso']) . '</td>

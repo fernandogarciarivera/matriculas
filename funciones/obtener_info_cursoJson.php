@@ -29,7 +29,7 @@ if ($resultado->num_rows > 0) {
         $idProfesor = $fila['idProfesor'];
 
         // Asegurarse de que los datos estén en UTF-8
-        $fila = array_map('utf8_encode', $fila);
+        //$fila = array_map('utf8_encode', $fila);
 
         // Si el curso no existe en la estructura, agregarlo
         if (!isset($cursos[$idCursoDicta])) {

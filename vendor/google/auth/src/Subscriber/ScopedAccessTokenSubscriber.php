@@ -15,14 +15,16 @@
  * limitations under the License.
  */
 
-namespace Google\Auth\Middleware;
+namespace Google\Auth\Subscriber;
 
 use Google\Auth\CacheTrait;
+use GuzzleHttp\Event\BeforeEvent;
+use GuzzleHttp\Event\RequestEvents;
+use GuzzleHttp\Event\SubscriberInterface;
 use Psr\Cache\CacheItemPoolInterface;
-use Psr\Http\Message\RequestInterface;
 
 /**
- * ScopedAccessTokenMiddleware is a Guzzle Middleware that adds an Authorization
+ * ScopedAccessTokenSubscriber is a Guzzle Subscriber that adds an Authorization
  * header provided by a closure.
  *
  * The closure returns an access token, taking the scope, either a single
@@ -31,9 +33,9 @@ use Psr\Http\Message\RequestInterface;
  *
  * Requests will be accessed with the authorization header:
  *
- * 'authorization' 'Bearer <value of auth_token>'
+ * 'authorization' 'Bearer <access token obtained from the closure>'
  */
-class ScopedAccessTokenMiddleware
+class ScopedAccessTokenSubscriber implements SubscriberInterface
 {
     use CacheTrait;
 
@@ -45,22 +47,22 @@ class ScopedAccessTokenMiddleware
     private $cache;
 
     /**
-     * @var array configuration
-     */
-    private $cacheConfig;
-
-    /**
-     * @var callable
+     * @var callable The access token generator function
      */
     private $tokenFunc;
 
     /**
-     * @var array|string
+     * @var array|string The scopes used to generate the token
      */
     private $scopes;
 
     /**
-     * Creates a new ScopedAccessTokenMiddleware.
+     * @var array
+     */
+    private $cacheConfig;
+
+    /**
+     * Creates a new ScopedAccessTokenSubscriber.
      *
      * @param callable $tokenFunc a token generator function
      * @param array|string $scopes the token authentication scopes
@@ -91,49 +93,52 @@ class ScopedAccessTokenMiddleware
     }
 
     /**
+     * @return array
+     */
+    public function getEvents()
+    {
+        return ['before' => ['onBefore', RequestEvents::SIGN_REQUEST]];
+    }
+
+    /**
      * Updates the request with an Authorization header when auth is 'scoped'.
      *
-     *   E.g this could be used to authenticate using the AppEngine
-     *   AppIdentityService.
+     * E.g this could be used to authenticate using the AppEngine AppIdentityService.
      *
-     *   use google\appengine\api\app_identity\AppIdentityService;
-     *   use Google\Auth\Middleware\ScopedAccessTokenMiddleware;
-     *   use GuzzleHttp\Client;
-     *   use GuzzleHttp\HandlerStack;
+     * Example:
+     * ```
+     * use google\appengine\api\app_identity\AppIdentityService;
+     * use Google\Auth\Subscriber\ScopedAccessTokenSubscriber;
+     * use GuzzleHttp\Client;
      *
-     *   $scope = 'https://www.googleapis.com/auth/taskqueue'
-     *   $middleware = new ScopedAccessTokenMiddleware(
-     *       'AppIdentityService::getAccessToken',
-     *       $scope,
-     *       [ 'prefix' => 'Google\Auth\ScopedAccessToken::' ],
-     *       $cache = new Memcache()
-     *   );
-     *   $stack = HandlerStack::create();
-     *   $stack->push($middleware);
+     * $scope = 'https://www.googleapis.com/auth/taskqueue'
+     * $subscriber = new ScopedAccessToken(
+     *     'AppIdentityService::getAccessToken',
+     *     $scope,
+     *     ['prefix' => 'Google\Auth\ScopedAccessToken::'],
+     *     $cache = new Memcache()
+     * );
      *
-     *   $client = new Client([
-     *       'handler' => $stack,
-     *       'base_url' => 'https://www.googleapis.com/taskqueue/v1beta2/projects/',
-     *       'auth' => 'scoped' // authorize all requests
-     *   ]);
+     * $client = new Client([
+     *     'base_url' => 'https://www.googleapis.com/taskqueue/v1beta2/projects/',
+     *     'defaults' => ['auth' => 'scoped']
+     * ]);
+     * $client->getEmitter()->attach($subscriber);
      *
-     *   $res = $client->get('myproject/taskqueues/myqueue');
+     * $res = $client->get('myproject/taskqueues/myqueue');
+     * ```
      *
-     * @param callable $handler
-     * @return \Closure
+     * @param BeforeEvent $event
      */
-    public function __invoke(callable $handler)
+    public function onBefore(BeforeEvent $event)
     {
-        return function (RequestInterface $request, array $options) use ($handler) {
-            // Requests using "auth"="scoped" will be authorized.
-            if (!isset($options['auth']) || $options['auth'] !== 'scoped') {
-                return $handler($request, $options);
-            }
-
-            $request = $request->withHeader('authorization', 'Bearer ' . $this->fetchToken());
-
-            return $handler($request, $options);
-        };
+        // Requests using "auth"="scoped" will be authorized.
+        $request = $event->getRequest();
+        if ($request->getConfig()['auth'] != 'scoped') {
+            return;
+        }
+        $auth_header = 'Bearer ' . $this->fetchToken();
+        $request->setHeader('authorization', $auth_header);
     }
 
     /**

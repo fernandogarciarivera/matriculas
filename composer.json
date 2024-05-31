@@ -1,5 +1,11 @@
 {
     "require": {
-        "google/apiclient": "^2.0"
-    }
+        "google/auth": "1.18.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
 }

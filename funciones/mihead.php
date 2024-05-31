@@ -17,8 +17,5 @@
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 
-    <!--
-    <?php echo (basename($_SERVER['PHP_SELF']) == "login.php" ? '<meta name="google-signin-client_id" content="554298806649-k6b3n83n3hqpuioddc8t0liplvbf8si6.apps.googleusercontent.com">' : ''); ?>
-    -->
     
 </head>
