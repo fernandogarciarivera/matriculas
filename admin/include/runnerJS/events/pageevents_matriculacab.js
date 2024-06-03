@@ -1,0 +1,2 @@
+
+Runner.pages.PageSettings.addPageEvent('matriculacab',Runner.pages.constants.PAGE_EDIT,"afterPageReady",function(pageObj,proxy,pageid,inlineRow,inlineObject){var ctrl=Runner.getControl(pageid,'idAlumno');var readonly=ctrl.isReadonly();ctrl.makeReadonly();});

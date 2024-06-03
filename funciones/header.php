@@ -1,5 +1,5 @@
 <?php
-	echo $current_pageMenu = trim(basename($_SERVER['PHP_SELF']));
+	$current_pageMenu = trim(basename($_SERVER['PHP_SELF']));
 	header('Content-Type: text/html; charset=utf-8');
 	mb_internal_encoding('UTF-8');
 	ini_set("default_charset", "UTF-8");

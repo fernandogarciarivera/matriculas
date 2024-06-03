@@ -1,0 +1,267 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+	</head>
+
+	<body class="{$stylename} function-view" {$bodyattrs}>
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="view_header" data-itemid="view_header" {$item_view_header} data-pageid="{$pageid}" >{$pagetitlelabel alumno view}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr>
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN Nombres_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Nombres}  r-vertical-field" data-fieldname="Nombres" data-signal-error-for="Nombres{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="Nombres" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Nombres}">
+		
+		{BEGIN Nombres_label}{$label alumno Nombres }{END Nombres_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Nombres_value}	</div>
+
+		
+</div>
+
+
+{END Nombres_fieldblock}
+											
+{BEGIN Apellidos_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Apellidos}  r-vertical-field" data-fieldname="Apellidos" data-signal-error-for="Apellidos{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="Apellidos" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Apellidos}">
+		
+		{BEGIN Apellidos_label}{$label alumno Apellidos }{END Apellidos_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Apellidos_value}	</div>
+
+		
+</div>
+
+
+{END Apellidos_fieldblock}
+											
+{BEGIN Carrera_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Carrera}  r-vertical-field" data-fieldname="Carrera" data-signal-error-for="Carrera{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="Carrera" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Carrera}">
+		
+		{BEGIN Carrera_label}{$label alumno Carrera }{END Carrera_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Carrera_value}	</div>
+
+		
+</div>
+
+
+{END Carrera_fieldblock}
+											
+{BEGIN Email_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Email}  r-vertical-field" data-fieldname="Email" data-signal-error-for="Email{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="Email" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Email}">
+		
+		{BEGIN Email_label}{$label alumno Email }{END Email_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Email_value}	</div>
+
+		
+</div>
+
+
+{END Email_fieldblock}
+											
+{BEGIN Celular_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Celular}  r-vertical-field" data-fieldname="Celular" data-signal-error-for="Celular{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="Celular" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_Celular}">
+		
+		{BEGIN Celular_label}{$label alumno Celular }{END Celular_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$Celular_value}	</div>
+
+		
+</div>
+
+
+{END Celular_fieldblock}
+											
+{BEGIN miFoto_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_miFoto}  r-vertical-field" data-fieldname="miFoto" data-signal-error-for="miFoto{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="miFoto" >
+
+	
+	<label class="col-md-offset-3 col-md-6" for="{$labelfor_miFoto}">
+		
+		{BEGIN miFoto_label}{$label alumno miFoto }{END miFoto_label}
+	</label>
+	<div class="col-md-offset-3 col-md-6" >
+		{$miFoto_value}	</div>
+
+		
+</div>
+
+
+{END miFoto_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-6
+	">
+	 
+		{BEGIN back_button}
+<span data-itemtype="view_back_list" data-itemid="view_back_list" {$item_view_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Volver a la lista			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN close_button}
+<span data-itemtype="view_close" data-itemid="view_close" {$item_view_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" href="#" {$closebutton_attrs} >
+							Cerrar ventana			</a>
+</span>
+{END close_button}
+	</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	">
+	 
+		<span data-itemtype="hamburger" data-itemid="hamburger" {$item_hamburger} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown dropup">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+							<span class="glyphicon glyphicon-menu-hamburger"></span>
+									<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN edit_page_button}
+	<li data-itemtype="view_edit" data-itemid="view_edit" {$item_view_edit} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$edit_page_button_attrs}  title="" >
+				
+		Editar		
+		</a>
+	</li>
+{END edit_page_button}
+					</ul>
+	</span>
+</span>
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

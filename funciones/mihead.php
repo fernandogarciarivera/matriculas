@@ -1,5 +1,8 @@
 <?php
-	session_start();
+	$current_pageSession = trim(basename($_SERVER['PHP_SELF']));
+
+    if($current_pageSession !== 'login.php') session_start();
+
     header('Content-Type: text/html; charset=utf-8');
     mb_internal_encoding('UTF-8');
     ini_set("default_charset", "UTF-8");
@@ -17,5 +20,4 @@
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 
-    
 </head>

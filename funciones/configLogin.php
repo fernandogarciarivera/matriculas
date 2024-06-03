@@ -1,35 +1,57 @@
 <?php
-    // Cargar el autoloader de Composer desde el directorio superior
     require_once __DIR__ . '/../vendor/autoload.php';
 
-    // Cargar las credenciales del archivo JSON
-    $client = new Google_Client();
-    
-    $credentialsPath = __DIR__ . '/../client_secret_554298806649-k6b3n83n3hqpuioddc8t0liplvbf8si6.apps.googleusercontent.com.json';
-    if (!file_exists($credentialsPath)) {
-        die('Error: El archivo de credenciales no existe en la ruta especificada: ' . $credentialsPath);
-    }
-    $client->setAuthConfig($credentialsPath);
+    use Google\Auth\OAuth2;
 
-    $client->setRedirectUri('http://www.pruebautp.com:8080');
-    $client->addScope(Google_Service_Oauth2::USERINFO_EMAIL);
-    $client->addScope(Google_Service_Oauth2::USERINFO_PROFILE);
+    session_start();
+
+    $clientId = '554298806649-k6b3n83n3hqpuioddc8t0liplvbf8si6.apps.googleusercontent.com';
+    $clientSecret = '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';
+    $redirectUri = 'https://www.pruebautp.com:8081/login.php';
+
+    $oauth2 = new OAuth2([
+        'clientId' => $clientId,
+        'clientSecret' => $clientSecret,
+        'authorizationUri' => 'https://accounts.google.com/o/oauth2/auth',
+        'redirectUri' => $redirectUri,
+        'tokenCredentialUri' => 'https://oauth2.googleapis.com/token',
+        'scope' => ['openid', 'profile', 'email'],
+    ]);
 
     if (isset($_GET['code'])) {
-        $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-        $client->setAccessToken($token);
+        $oauth2->setCode($_GET['code']);
+        $token = $oauth2->fetchAuthToken();
+    
+        if (isset($token['access_token'])) {
+            $accessToken = $token['access_token'];
+    
+            // Obtener información del usuario
+            $client = new GuzzleHttp\Client();
+            $response = $client->get('https://www.googleapis.com/oauth2/v3/userinfo', [
+                'headers' => ['Authorization' => 'Bearer ' . $accessToken]
+            ]);
+    
+            $userInfo = json_decode($response->getBody(), true);
+    
+            $_SESSION['user_id'] = $userInfo['sub'];
+            $_SESSION['user_name'] = $userInfo['name'];
+            $_SESSION['user_email'] = $userInfo['email'];
 
-        $oauth2Service = new Google_Service_Oauth2($client);
-        $userInfo = $oauth2Service->userinfo->get();
+            $_SESSION['idAlumno'] = $userInfo['sub'];
+            $_SESSION['Nombres'] = $userInfo($fila['name']); 
+            $_SESSION['Apellidos'] = $userInfo($fila['name']);
+            $_SESSION['Email'] = $userInfo($fila['email']);
+            $_SESSION['usuario'] = $fila['email'];
+    
+            header('Location: /matriculas.php');
+            exit();
+        } else {
+            echo 'Error fetching access token';
+        }
+    }
 
-        $_SESSION['user_id'] = $userInfo->id;
-        $_SESSION['user_name'] = $userInfo->name;
-        $_SESSION['user_email'] = $userInfo->email;
-        $_SESSION['usuario'] = $userInfo->email;
+    $authUrl = $oauth2->buildFullAuthorizationUri();
 
-        header('Location: /login.php');
-        exit();
-    } 
-
-    $authUrl = $client->createAuthUrl();
+    // Para depuración: imprimir la URL de autorización
+    echo '<!-- Auth URL: ' . htmlspecialchars($authUrl) . ' -->';
 ?>

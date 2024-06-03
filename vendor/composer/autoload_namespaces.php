@@ -6,4 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Dmtx' => array($vendorDir . '/ptachoire/php-dmtx/src'),
 );
