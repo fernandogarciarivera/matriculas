@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 19-05-2024 a las 21:57:09
--- Versión del servidor: 5.7.44
+-- Tiempo de generación: 03-06-2024 a las 20:49:00
+-- Versión del servidor: 8.0.36
 -- Versión de PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `matriculas`
@@ -26,7 +26,7 @@ DELIMITER $$
 -- Procedimientos
 --
 DROP PROCEDURE IF EXISTS `AssignCoursesToProfessors`$$
-CREATE  PROCEDURE `AssignCoursesToProfessors` ()   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AssignCoursesToProfessors` ()   BEGIN
     
     -- Bucle para asignar cursos a profesores
     DECLARE done INT DEFAULT FALSE;
@@ -100,20 +100,20 @@ DELIMITER ;
 
 DROP TABLE IF EXISTS `alumno`;
 CREATE TABLE IF NOT EXISTS `alumno` (
-  `idAlumno` int(11) NOT NULL AUTO_INCREMENT,
-  `Nombres` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `Apellidos` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `miFoto` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Carrera` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `Email` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Celular` char(10) DEFAULT NULL,
-  `Gthub` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Web` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Password` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL DEFAULT '1234',
+  `idAlumno` int NOT NULL AUTO_INCREMENT,
+  `Nombres` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `Apellidos` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `miFoto` varchar(500) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `Carrera` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `Email` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `Celular` char(10) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `Gthub` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `Web` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `Password` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL DEFAULT '1234',
   PRIMARY KEY (`idAlumno`),
   UNIQUE KEY `idAlumno` (`idAlumno`),
   UNIQUE KEY `Password` (`Password`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `alumno`
@@ -149,14 +149,14 @@ INSERT INTO `alumno` (`idAlumno`, `Nombres`, `Apellidos`, `miFoto`, `Carrera`, `
 
 DROP TABLE IF EXISTS `alumno_profesor_curso`;
 CREATE TABLE IF NOT EXISTS `alumno_profesor_curso` (
-  `IdmatriculaCab` int(10) NOT NULL,
-  `idMatricula` int(11) NOT NULL AUTO_INCREMENT,
-  `idAlumno` int(11) NOT NULL,
-  `idCursoDicta` int(11) NOT NULL,
-  `idCurso` int(11) NOT NULL,
-  `idProfesor` int(11) NOT NULL,
-  `estadoCurso` int(11) DEFAULT NULL,
-  `estadoMatricula` int(11) DEFAULT NULL,
+  `IdmatriculaCab` int NOT NULL,
+  `idMatricula` int NOT NULL AUTO_INCREMENT,
+  `idAlumno` int NOT NULL,
+  `idCursoDicta` int NOT NULL,
+  `idCurso` int NOT NULL,
+  `idProfesor` int NOT NULL,
+  `estadoCurso` int DEFAULT NULL,
+  `estadoMatricula` int DEFAULT NULL,
   PRIMARY KEY (`idMatricula`,`idAlumno`),
   UNIQUE KEY `idMatricula` (`idMatricula`),
   KEY `FKalumno_pro298549` (`idAlumno`),
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `alumno_profesor_curso` (
   KEY `FKalumno_pro554239` (`IdmatriculaCab`),
   KEY `FKAlumno_Pro79070` (`idCursoDicta`,`idProfesor`,`idCurso`),
   KEY `FKAlumno_Pro325116` (`idAlumno`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `alumno_profesor_curso`
@@ -188,14 +188,14 @@ INSERT INTO `alumno_profesor_curso` (`IdmatriculaCab`, `idMatricula`, `idAlumno`
 
 DROP TABLE IF EXISTS `asistencia`;
 CREATE TABLE IF NOT EXISTS `asistencia` (
-  `idMatricula` int(11) NOT NULL,
-  `idAlumno` int(11) NOT NULL,
+  `idMatricula` int NOT NULL,
+  `idAlumno` int NOT NULL,
   `DiaClase` date NOT NULL,
   `Asitio` tinyint(1) DEFAULT NULL,
-  `info` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `info` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
   KEY `FKasistencia952443` (`idMatricula`,`idAlumno`),
   KEY `FKAsistencia59900` (`idMatricula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -205,11 +205,11 @@ CREATE TABLE IF NOT EXISTS `asistencia` (
 
 DROP TABLE IF EXISTS `calificacion`;
 CREATE TABLE IF NOT EXISTS `calificacion` (
-  `idMiEvaluacion` int(11) NOT NULL AUTO_INCREMENT,
-  `idMatricula` int(11) NOT NULL,
-  `idAlumno` int(11) NOT NULL,
-  `idEvaluacion` int(11) NOT NULL,
-  `idCurso` int(11) NOT NULL,
+  `idMiEvaluacion` int NOT NULL AUTO_INCREMENT,
+  `idMatricula` int NOT NULL,
+  `idAlumno` int NOT NULL,
+  `idEvaluacion` int NOT NULL,
+  `idCurso` int NOT NULL,
   `ValorPuntos` decimal(10,3) NOT NULL DEFAULT '0.000',
   PRIMARY KEY (`idMiEvaluacion`,`idMatricula`),
   UNIQUE KEY `idMiEvaluacion` (`idMiEvaluacion`),
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `calificacion` (
   KEY `FKcalificaci941586` (`idEvaluacion`,`idCurso`),
   KEY `FKCalificaci673614` (`idMatricula`),
   KEY `FKCalificaci845722` (`idEvaluacion`,`idCurso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -227,11 +227,11 @@ CREATE TABLE IF NOT EXISTS `calificacion` (
 
 DROP TABLE IF EXISTS `cicloescolar`;
 CREATE TABLE IF NOT EXISTS `cicloescolar` (
-  `idCicloEscolar` char(5) NOT NULL,
+  `idCicloEscolar` char(5) COLLATE utf8mb3_unicode_ci NOT NULL,
   `FechaInicio` date NOT NULL,
   `FechaTermino` date NOT NULL,
   PRIMARY KEY (`idCicloEscolar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `cicloescolar`
@@ -253,22 +253,22 @@ INSERT INTO `cicloescolar` (`idCicloEscolar`, `FechaInicio`, `FechaTermino`) VAL
 
 DROP TABLE IF EXISTS `curso`;
 CREATE TABLE IF NOT EXISTS `curso` (
-  `idCurso` int(11) NOT NULL AUTO_INCREMENT,
-  `NombreCurso` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `Seccion` char(4) NOT NULL,
-  `NRC` char(4) NOT NULL,
-  `miFoto` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Academia` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `bitacora` varchar(500) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `DiasClase` int(11) NOT NULL,
-  `HorasClase` int(11) NOT NULL,
-  `idCicloEscolar` char(5) NOT NULL,
+  `idCurso` int NOT NULL AUTO_INCREMENT,
+  `NombreCurso` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `Seccion` char(4) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `NRC` char(4) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `miFoto` varchar(500) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `Academia` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `bitacora` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `DiasClase` int NOT NULL,
+  `HorasClase` int NOT NULL,
+  `idCicloEscolar` char(5) COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`idCurso`),
   UNIQUE KEY `idCurso` (`idCurso`),
   UNIQUE KEY `NRC` (`NRC`),
   KEY `FKcurso363176` (`idCicloEscolar`),
   KEY `FKCurso59519` (`idCicloEscolar`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `curso`
@@ -314,11 +314,11 @@ INSERT INTO `curso` (`idCurso`, `NombreCurso`, `Seccion`, `NRC`, `miFoto`, `Acad
 DROP TABLE IF EXISTS `diafestivo`;
 CREATE TABLE IF NOT EXISTS `diafestivo` (
   `DiaFestivo` date DEFAULT NULL,
-  `Motivo` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `idCicloEscolar` char(5) NOT NULL,
+  `Motivo` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `idCicloEscolar` char(5) COLLATE utf8mb3_unicode_ci NOT NULL,
   KEY `FKdiafestivo221864` (`idCicloEscolar`),
   KEY `FKDiaFestivo347472` (`idCicloEscolar`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -328,15 +328,15 @@ CREATE TABLE IF NOT EXISTS `diafestivo` (
 
 DROP TABLE IF EXISTS `evaluacion`;
 CREATE TABLE IF NOT EXISTS `evaluacion` (
-  `idEvaluacion` int(11) NOT NULL AUTO_INCREMENT,
-  `idCurso` int(11) NOT NULL,
-  `Actividad` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `Porcentaje` int(11) NOT NULL,
+  `idEvaluacion` int NOT NULL AUTO_INCREMENT,
+  `idCurso` int NOT NULL,
+  `Actividad` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `Porcentaje` int NOT NULL,
   PRIMARY KEY (`idEvaluacion`,`idCurso`),
   UNIQUE KEY `idEvaluacion` (`idEvaluacion`),
   KEY `FKevaluacion931468` (`idCurso`),
   KEY `FKEvaluacion982686` (`idCurso`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -346,19 +346,19 @@ CREATE TABLE IF NOT EXISTS `evaluacion` (
 
 DROP TABLE IF EXISTS `horarios`;
 CREATE TABLE IF NOT EXISTS `horarios` (
-  `IdHorario` int(11) NOT NULL AUTO_INCREMENT,
-  `idCursoDicta` int(11) NOT NULL,
-  `idProfesor` int(11) NOT NULL,
-  `idCurso` int(11) NOT NULL,
-  `numDia` int(11) DEFAULT NULL,
-  `txtDia` varchar(10) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `IdHorario` int NOT NULL AUTO_INCREMENT,
+  `idCursoDicta` int NOT NULL,
+  `idProfesor` int NOT NULL,
+  `idCurso` int NOT NULL,
+  `numDia` int DEFAULT NULL,
+  `txtDia` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
   `HorIni` time DEFAULT NULL,
   `HorFin` time DEFAULT NULL,
   PRIMARY KEY (`IdHorario`),
   UNIQUE KEY `IdHorario` (`IdHorario`),
   KEY `FKhorarios931373` (`idCursoDicta`,`idProfesor`,`idCurso`),
   KEY `FKHorarios834068` (`idCursoDicta`,`idProfesor`,`idCurso`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `horarios`
@@ -418,14 +418,14 @@ INSERT INTO `horarios` (`IdHorario`, `idCursoDicta`, `idProfesor`, `idCurso`, `n
 
 DROP TABLE IF EXISTS `matriculacab`;
 CREATE TABLE IF NOT EXISTS `matriculacab` (
-  `IdmatriculaCab` int(10) NOT NULL AUTO_INCREMENT,
-  `documento` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `idAlumno` int(11) NOT NULL,
+  `IdmatriculaCab` int NOT NULL AUTO_INCREMENT,
+  `documento` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci DEFAULT NULL,
+  `idAlumno` int NOT NULL,
   `fechaRegistro` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`IdmatriculaCab`),
   UNIQUE KEY `IdmatriculaCab` (`IdmatriculaCab`),
   KEY `FKmatriculaC647858` (`idAlumno`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `matriculacab`
@@ -445,22 +445,22 @@ INSERT INTO `matriculacab` (`IdmatriculaCab`, `documento`, `idAlumno`, `fechaReg
 
 DROP TABLE IF EXISTS `profesor`;
 CREATE TABLE IF NOT EXISTS `profesor` (
-  `idProfesor` int(11) NOT NULL AUTO_INCREMENT,
-  `NomProfesor` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `ApellidosProfesor` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `miFoto` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `sexo` varchar(1) DEFAULT 'H',
-  `bitacora` text,
+  `idProfesor` int NOT NULL AUTO_INCREMENT,
+  `NomProfesor` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `ApellidosProfesor` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `miFoto` varchar(500) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `sexo` varchar(1) COLLATE utf8mb3_unicode_ci DEFAULT 'H',
+  `bitacora` text COLLATE utf8mb3_unicode_ci,
   PRIMARY KEY (`idProfesor`),
   UNIQUE KEY `idProfesor` (`idProfesor`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `profesor`
 --
 
 INSERT INTO `profesor` (`idProfesor`, `NomProfesor`, `ApellidosProfesor`, `miFoto`, `sexo`, `bitacora`) VALUES
-(1, 'Juan', 'Pérez', NULL, 'H', 'Experto en Matemáticas'),
+(1, 'Juan', 'Pérez', '[{\"name\":\"img\\/files\\/profesor\\/matriculas_workbench_3g8nfs83.png\",\"usrName\":\"matriculas_workbench.png\",\"size\":102508,\"type\":\"image\\/png\",\"thumbnail\":\"img\\/files\\/profesor\\/thmatriculas_workbench_oixbvg5z.png\",\"thumbnail_type\":\"image\\/png\",\"thumbnail_size\":102508,\"searchStr\":\"matriculas_workbench.png,!:sStrEnd\"}]', 'H', 'Experto en Matemáticas'),
 (2, 'María', 'González', NULL, 'M', 'Historiadora reconocida'),
 (3, 'Pedro', 'López', NULL, 'H', 'Especialista en Biología'),
 (4, 'Laura', 'Martínez', NULL, 'M', 'Apasionada por la Literatura'),
@@ -481,9 +481,9 @@ INSERT INTO `profesor` (`idProfesor`, `NomProfesor`, `ApellidosProfesor`, `miFot
 
 DROP TABLE IF EXISTS `profesor_curso`;
 CREATE TABLE IF NOT EXISTS `profesor_curso` (
-  `idCursoDicta` int(11) NOT NULL AUTO_INCREMENT,
-  `idProfesor` int(11) NOT NULL,
-  `idCurso` int(11) NOT NULL,
+  `idCursoDicta` int NOT NULL AUTO_INCREMENT,
+  `idProfesor` int NOT NULL,
+  `idCurso` int NOT NULL,
   `fechaIni` date DEFAULT NULL,
   `fehaFin` date DEFAULT NULL,
   PRIMARY KEY (`idCursoDicta`,`idProfesor`,`idCurso`),
@@ -492,7 +492,7 @@ CREATE TABLE IF NOT EXISTS `profesor_curso` (
   KEY `FKprofesor_c717960` (`idCurso`),
   KEY `FKProfesor_C656681` (`idProfesor`),
   KEY `FKProfesor_C154041` (`idCurso`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `profesor_curso`
@@ -552,21 +552,21 @@ INSERT INTO `profesor_curso` (`idCursoDicta`, `idProfesor`, `idCurso`, `fechaIni
 --
 DROP VIEW IF EXISTS `profesor_curso_horario_view`;
 CREATE TABLE IF NOT EXISTS `profesor_curso_horario_view` (
-`idCursoDicta` int(11)
-,`idProfesor` int(11)
-,`NomProfesor` varchar(45)
+`Academia` varchar(45)
 ,`ApellidosProfesor` varchar(45)
-,`idCurso` int(11)
-,`NombreCurso` varchar(45)
-,`Seccion` char(4)
-,`NRC` char(4)
-,`Academia` varchar(45)
-,`idCicloEscolar` char(5)
-,`IdHorario` int(11)
-,`numDia` int(11)
-,`txtDia` varchar(10)
-,`HorIni` time
 ,`HorFin` time
+,`HorIni` time
+,`idCicloEscolar` char(5)
+,`idCurso` int
+,`idCursoDicta` int
+,`IdHorario` int
+,`idProfesor` int
+,`NombreCurso` varchar(45)
+,`NomProfesor` varchar(45)
+,`NRC` char(4)
+,`numDia` int
+,`Seccion` char(4)
+,`txtDia` varchar(10)
 );
 
 -- --------------------------------------------------------
@@ -577,16 +577,16 @@ CREATE TABLE IF NOT EXISTS `profesor_curso_horario_view` (
 --
 DROP VIEW IF EXISTS `profesor_curso_view`;
 CREATE TABLE IF NOT EXISTS `profesor_curso_view` (
-`idCursoDicta` int(11)
-,`idProfesor` int(11)
-,`NomProfesor` varchar(45)
+`Academia` varchar(45)
 ,`ApellidosProfesor` varchar(45)
-,`idCurso` int(11)
-,`NombreCurso` varchar(45)
-,`Seccion` char(4)
-,`NRC` char(4)
-,`Academia` varchar(45)
 ,`idCicloEscolar` char(5)
+,`idCurso` int
+,`idCursoDicta` int
+,`idProfesor` int
+,`NombreCurso` varchar(45)
+,`NomProfesor` varchar(45)
+,`NRC` char(4)
+,`Seccion` char(4)
 );
 
 -- --------------------------------------------------------
@@ -597,7 +597,7 @@ CREATE TABLE IF NOT EXISTS `profesor_curso_view` (
 DROP TABLE IF EXISTS `profesor_curso_horario_view`;
 
 DROP VIEW IF EXISTS `profesor_curso_horario_view`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `profesor_curso_horario_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `pc`.`NomProfesor` AS `NomProfesor`, `pc`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `pc`.`NombreCurso` AS `NombreCurso`, `pc`.`Seccion` AS `Seccion`, `pc`.`NRC` AS `NRC`, `pc`.`Academia` AS `Academia`, `pc`.`idCicloEscolar` AS `idCicloEscolar`, `h`.`IdHorario` AS `IdHorario`, `h`.`numDia` AS `numDia`, `h`.`txtDia` AS `txtDia`, `h`.`HorIni` AS `HorIni`, `h`.`HorFin` AS `HorFin` FROM (`profesor_curso_view` `pc` join `horarios` `h` on(((`h`.`idCursoDicta` = `pc`.`idCursoDicta`) and (`h`.`idProfesor` = `pc`.`idProfesor`) and (`h`.`idCurso` = `pc`.`idCurso`)))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `profesor_curso_horario_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `pc`.`NomProfesor` AS `NomProfesor`, `pc`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `pc`.`NombreCurso` AS `NombreCurso`, `pc`.`Seccion` AS `Seccion`, `pc`.`NRC` AS `NRC`, `pc`.`Academia` AS `Academia`, `pc`.`idCicloEscolar` AS `idCicloEscolar`, `h`.`IdHorario` AS `IdHorario`, `h`.`numDia` AS `numDia`, `h`.`txtDia` AS `txtDia`, `h`.`HorIni` AS `HorIni`, `h`.`HorFin` AS `HorFin` FROM (`profesor_curso_view` `pc` join `horarios` `h` on(((`h`.`idCursoDicta` = `pc`.`idCursoDicta`) and (`h`.`idProfesor` = `pc`.`idProfesor`) and (`h`.`idCurso` = `pc`.`idCurso`)))) ;
 
 -- --------------------------------------------------------
 
@@ -607,7 +607,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `profesor_curso_horario_vie
 DROP TABLE IF EXISTS `profesor_curso_view`;
 
 DROP VIEW IF EXISTS `profesor_curso_view`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `profesor_curso_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `p`.`NomProfesor` AS `NomProfesor`, `p`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `c`.`NombreCurso` AS `NombreCurso`, `c`.`Seccion` AS `Seccion`, `c`.`NRC` AS `NRC`, `c`.`Academia` AS `Academia`, `c`.`idCicloEscolar` AS `idCicloEscolar` FROM ((`profesor_curso` `pc` join `profesor` `p` on((`p`.`idProfesor` = `pc`.`idProfesor`))) join `curso` `c` on((`c`.`idCurso` = `pc`.`idCurso`))) ORDER BY `c`.`idCicloEscolar` ASC ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `profesor_curso_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `p`.`NomProfesor` AS `NomProfesor`, `p`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `c`.`NombreCurso` AS `NombreCurso`, `c`.`Seccion` AS `Seccion`, `c`.`NRC` AS `NRC`, `c`.`Academia` AS `Academia`, `c`.`idCicloEscolar` AS `idCicloEscolar` FROM ((`profesor_curso` `pc` join `profesor` `p` on((`p`.`idProfesor` = `pc`.`idProfesor`))) join `curso` `c` on((`c`.`idCurso` = `pc`.`idCurso`))) ORDER BY `c`.`idCicloEscolar` ASC ;
 
 --
 -- Restricciones para tablas volcadas
