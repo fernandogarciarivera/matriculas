@@ -278,13 +278,13 @@ class ConnectionManager
 		$data["connId"] = "matriculas_at_127_0_0_1";
 		$data["connName"] = "matriculas at localhost";
 		$data["connStringType"] = "mysql";
-		$data["connectionString"] = "mysql;localhost;matriculasusr;matriculaspsw;3306;matriculas;;1"; //currently unused
+		$data["connectionString"] = "mysql;localhost;root;;3306;matriculas;;1"; //currently unused
 
 		$this->_connectionsIdByName["matriculas at localhost"] = "matriculas_at_127_0_0_1";
 		
 		$data["connInfo"] = array();
-		$data["ODBCUID"] = "matriculasusr";
-		$data["ODBCPWD"] = "matriculaspsw";
+		$data["ODBCUID"] = "root";
+		$data["ODBCPWD"] = "";
 		$data["leftWrap"] = "`";
 		$data["rightWrap"] = "`";
 		
@@ -292,13 +292,13 @@ class ConnectionManager
 		$data["useServerMapPath"] = 1; //currently unused
 		
 		$data["connInfo"][0] = "localhost";
-		$data["connInfo"][1] = "matriculasusr";
-		$data["connInfo"][2] = "matriculaspsw";
+		$data["connInfo"][1] = "root";
+		$data["connInfo"][2] = "";
 		$data["connInfo"][3] = "3306";
 		$data["connInfo"][4] = "matriculas";
 		$data["connInfo"][5] = ""; //currently unused
 		$data["connInfo"][6] = "1"; //currently unused
-		$data["ODBCString"] = "DRIVER={MySQL ODBC 3.51 Driver};Server=localhost;Uid=matriculasusr;Pwd=matriculaspsw;Port=3306;Database=matriculas;OPTION=3";
+		$data["ODBCString"] = "DRIVER={MySQL ODBC 3.51 Driver};Server=localhost;Uid=root;Pwd=;Port=3306;Database=matriculas;OPTION=3";
 		// encription set
 		$data["EncryptInfo"] = array();
 		$data["EncryptInfo"]["mode"] = 0;

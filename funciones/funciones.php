@@ -32,7 +32,19 @@ function obtenerProfesores($conexion, $idProfesor) {
 
 function mostrarProfesores($profesores, $current_page) {
     foreach ($profesores as $profesor) {
+		
+		/** revisar si el campo tiene informacion de una foto para mostrar **/
+		if($profesor['miFoto']) {
+			// Decode JSON string
+			$imageDataArray = json_decode($profesor['miFoto'], true);
+			if (json_last_error() === JSON_ERROR_NONE) {
+				$thumbnailPath = $imageDataArray[0]['thumbnail'];
+				$profesor['miFoto'] = 'admin/'.$thumbnailPath;
+			}
+		}
+		
 		$foto = $profesor['miFoto'] ? $profesor['miFoto'] : 'assets/img/docentes/docente_' . ($profesor['sexo'] == 'M' ? 'hombre' : 'mujer') . '.jpg';
+		
 		if ($current_page == 'index.php') {
 			echo '<div class="col text-center text-md-start">
 				<div class="d-flex justify-content-center align-items-center justify-content-md-start">
@@ -237,6 +249,22 @@ function grabarMatricula($conexion, $idAlumno, $selectedHorarios) {
         $conexion->rollback();
         return "Error al registrar la matrícula: " . $e->getMessage();
     }
+}
+
+function parse_custom_json($json) {
+    $pattern = '/\{[^{}]*\}/';
+    preg_match($pattern, $json, $matches);
+    $json = $matches[0];
+
+    $json = str_replace(['{', '}', ':', '"'], '', $json);
+    $json_parts = explode(',', $json);
+
+    $result = [];
+    foreach ($json_parts as $part) {
+        list($key, $value) = explode(':', $part);
+        $result[trim($key)] = trim($value);
+    }
+    return $result;
 }
 
 ?>

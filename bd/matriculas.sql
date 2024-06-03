@@ -26,7 +26,7 @@ DELIMITER $$
 -- Procedimientos
 --
 DROP PROCEDURE IF EXISTS `AssignCoursesToProfessors`$$
-CREATE DEFINER=`matriculasusr`@`localhost` PROCEDURE `AssignCoursesToProfessors` ()   BEGIN
+CREATE  PROCEDURE `AssignCoursesToProfessors` ()   BEGIN
     
     -- Bucle para asignar cursos a profesores
     DECLARE done INT DEFAULT FALSE;
@@ -597,7 +597,7 @@ CREATE TABLE IF NOT EXISTS `profesor_curso_view` (
 DROP TABLE IF EXISTS `profesor_curso_horario_view`;
 
 DROP VIEW IF EXISTS `profesor_curso_horario_view`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `profesor_curso_horario_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `pc`.`NomProfesor` AS `NomProfesor`, `pc`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `pc`.`NombreCurso` AS `NombreCurso`, `pc`.`Seccion` AS `Seccion`, `pc`.`NRC` AS `NRC`, `pc`.`Academia` AS `Academia`, `pc`.`idCicloEscolar` AS `idCicloEscolar`, `h`.`IdHorario` AS `IdHorario`, `h`.`numDia` AS `numDia`, `h`.`txtDia` AS `txtDia`, `h`.`HorIni` AS `HorIni`, `h`.`HorFin` AS `HorFin` FROM (`profesor_curso_view` `pc` join `horarios` `h` on(((`h`.`idCursoDicta` = `pc`.`idCursoDicta`) and (`h`.`idProfesor` = `pc`.`idProfesor`) and (`h`.`idCurso` = `pc`.`idCurso`)))) ;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `profesor_curso_horario_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `pc`.`NomProfesor` AS `NomProfesor`, `pc`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `pc`.`NombreCurso` AS `NombreCurso`, `pc`.`Seccion` AS `Seccion`, `pc`.`NRC` AS `NRC`, `pc`.`Academia` AS `Academia`, `pc`.`idCicloEscolar` AS `idCicloEscolar`, `h`.`IdHorario` AS `IdHorario`, `h`.`numDia` AS `numDia`, `h`.`txtDia` AS `txtDia`, `h`.`HorIni` AS `HorIni`, `h`.`HorFin` AS `HorFin` FROM (`profesor_curso_view` `pc` join `horarios` `h` on(((`h`.`idCursoDicta` = `pc`.`idCursoDicta`) and (`h`.`idProfesor` = `pc`.`idProfesor`) and (`h`.`idCurso` = `pc`.`idCurso`)))) ;
 
 -- --------------------------------------------------------
 
@@ -607,7 +607,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `profesor_curso_view`;
 
 DROP VIEW IF EXISTS `profesor_curso_view`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `profesor_curso_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `p`.`NomProfesor` AS `NomProfesor`, `p`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `c`.`NombreCurso` AS `NombreCurso`, `c`.`Seccion` AS `Seccion`, `c`.`NRC` AS `NRC`, `c`.`Academia` AS `Academia`, `c`.`idCicloEscolar` AS `idCicloEscolar` FROM ((`profesor_curso` `pc` join `profesor` `p` on((`p`.`idProfesor` = `pc`.`idProfesor`))) join `curso` `c` on((`c`.`idCurso` = `pc`.`idCurso`))) ORDER BY `c`.`idCicloEscolar` ASC ;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `profesor_curso_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `p`.`NomProfesor` AS `NomProfesor`, `p`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `c`.`NombreCurso` AS `NombreCurso`, `c`.`Seccion` AS `Seccion`, `c`.`NRC` AS `NRC`, `c`.`Academia` AS `Academia`, `c`.`idCicloEscolar` AS `idCicloEscolar` FROM ((`profesor_curso` `pc` join `profesor` `p` on((`p`.`idProfesor` = `pc`.`idProfesor`))) join `curso` `c` on((`c`.`idCurso` = `pc`.`idCurso`))) ORDER BY `c`.`idCicloEscolar` ASC ;
 
 --
 -- Restricciones para tablas volcadas

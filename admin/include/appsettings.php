@@ -524,9 +524,9 @@ $ajaxSearchStartsWith = true;
 
 $globalSettings["LandingPageType"] = 1;
 $globalSettings["LandingTable"] = "alumno";
-$globalSettings["LandingPage"] = "add";
-$globalSettings["LandingURL"] = "alumno_add.php?page=add";
-$globalSettings["LandingPageId"] = "add";
+$globalSettings["LandingPage"] = "list";
+$globalSettings["LandingURL"] = "alumno_list.php?page=list";
+$globalSettings["LandingPageId"] = "list";
 
 $globalSettings["ProjectLogo"] = array();
 $globalSettings["ProjectLogo"]["Spanish"] = "matriculasAdmin";
@@ -622,9 +622,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "57_1717427410";
+$projectBuildKey = "62_1717434957";
 $wizardBuildKey = "33793";
-$projectBuildNumber = "57";
+$projectBuildNumber = "62";
 
 $mlang_messages = array();
 $mlang_charsets = array();

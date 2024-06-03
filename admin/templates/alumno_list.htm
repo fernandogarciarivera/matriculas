@@ -227,7 +227,7 @@
 {END breadcrumb}			</span>
 							 
 							 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
+				<span class="navbar-form r-align-right r-ori-vert navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
 				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
 
 <div  class="input-group">
@@ -249,43 +249,6 @@
 </div>
 		
 </span>			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
-				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
-	<span class="dropdown ">
-		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-cog"></span>
-									<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-							{BEGIN deleteselected_link}
-	<li data-itemtype="delete_selected" data-itemid="delete_selected" {$item_delete_selected} data-pageid="{$pageid}" data-small >
-				<a  href="#" {$deleteselectedlink_attrs} {$deleteselectedlink_span}  title="" >
-				
-		Borrar articulos seleccionados		
-		</a>
-	</li>
-{END deleteselected_link}
-							<li role="separator" class="divider"></li>							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="showOptPanel{$id}"  title="" >
-				
-		Mostrar panel de búsqueda		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="hideOptPanel{$id}"  title="" >
-				
-		Ocultar panel de búsqueda		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-					</ul>
-	</span>
-</span>
-			</span>
 								</nav>
 {END supertop_block}
 						{$locking}
