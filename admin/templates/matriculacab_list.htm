@@ -111,7 +111,7 @@
 {END breadcrumb}			</span>
 							 
 							 
-				<span class="navbar-form r-align-right r-ori-vert navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
 				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
 
 <div  class="input-group">
@@ -133,6 +133,27 @@
 </div>
 		
 </span>			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
+				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+							<span class="glyphicon glyphicon-cog"></span>
+									<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN deleteselected_link}
+	<li data-itemtype="delete_selected" data-itemid="delete_selected" {$item_delete_selected} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$deleteselectedlink_attrs} {$deleteselectedlink_span}  title="" >
+				
+		Borrar articulos seleccionados		
+		</a>
+	</li>
+{END deleteselected_link}
+					</ul>
+	</span>
+</span>
+			</span>
 								</nav>
 {END supertop_block}
 						{$locking}
@@ -196,22 +217,38 @@
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
 </span>	 
-		{BEGIN print_details}
+		{BEGIN print_friendly}
+<span id="printpanelblock{$id}"  data-pageid="{$pageid}" {$printpanel_hiddenattr} data-itemtype="print_panel" data-itemid="print_panel" {$item_print_panel} data-pageid="{$pageid}">
+	<button title="Página para imprimir" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="glyphicon glyphicon-print"></span>
+				<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu pull-right">
+										 
+				 
+					<li class="container-fluid 
+										">
+									{BEGIN print_details}
 <div>
 	<label for="printDetailsToggler{$id}">
 		<input type="checkbox" id="printDetailsToggler{$id}">
 		Detalles de impresión	</label>
 	<div  id="printdetailstables{$id}" style="display:none;">
-											{BEGIN print_details_alumno_profesor_curso}
+											{BEGIN print_details_mimatricula_curso_horario_view}
 			<div>
-				<label for="printDetailsalumno_profesor_curso{$id}">
-					<input type="checkbox" value="alumno_profesor_curso" id="printDetailsalumno_profesor_curso{$id}" checked>
-					Cursos Matriculados				</label>
+				<label for="printDetailsmimatricula_curso_horario_view{$id}">
+					<input type="checkbox" value="mimatricula_curso_horario_view" id="printDetailsmimatricula_curso_horario_view{$id}" checked>
+					Mimatricula Curso Horario View				</label>
 			</div>
-			{END print_details_alumno_profesor_curso}
+			{END print_details_mimatricula_curso_horario_view}
 						</div>
 </div>
 {END print_details}
+				 
+					</li>
+															</ul>
+</span>
+{END print_friendly}
 		</div>					</div>
 	</div>		
 {END above-grid_block}
@@ -494,13 +531,13 @@
 	{BEGIN dtables_link}
 				<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
 		<a 
-			{$alumno_profesor_curso_link_attrs} 
-			class="{$dtables_link_class} details-badge badge alumno_profesor_curso_badge" 
+			{$mimatricula_curso_horario_view_link_attrs} 
+			class="{$dtables_link_class} details-badge badge mimatricula_curso_horario_view_badge" 
 			title="Mostrar detalles"
 		>
 							<span class="glyphicon glyphicon-th-list"></span>
-									<span class="{$alumno_profesor_curso_cntspan_class}" {$alumno_profesor_curso_childnumber_attr}>
-				{$alumno_profesor_curso_childnumber}				
+									<span class="{$mimatricula_curso_horario_view_cntspan_class}" {$mimatricula_curso_horario_view_childnumber_attr}>
+				{$mimatricula_curso_horario_view_childnumber}				
 			</span>
 		</a>
 		</span>
@@ -598,9 +635,9 @@
 
 	 
 			<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="alumno_profesor_curso"
-			data-details-alumno_profesor_curso	>
-		<span data-details-inside data-short-table="alumno_profesor_curso">
+	data-orders="mimatricula_curso_horario_view"
+			data-details-mimatricula_curso_horario_view	>
+		<span data-details-inside data-short-table="mimatricula_curso_horario_view">
 			</span>
 		<div data-details-preview>
 	</div>

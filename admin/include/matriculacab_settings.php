@@ -826,20 +826,20 @@ $page_titles["matriculacab"] = &$pageTitlesmatriculacab;
 // -----------------start  prepare master-details data arrays ------------------------------//
 // tables which are detail tables for current table (master)
 $detailsTablesData["matriculacab"] = array();
-//	alumno_profesor_curso
+//	mimatricula_curso_horario_view
 	
 	
 
 		$dIndex = 0;
 	$detailsParam = array();
-	$detailsParam["dDataSourceTable"]="alumno_profesor_curso";
-		$detailsParam["dOriginalTable"] = "alumno_profesor_curso";
+	$detailsParam["dDataSourceTable"]="mimatricula_curso_horario_view";
+		$detailsParam["dOriginalTable"] = "mimatricula_curso_horario_view";
 
 
 
 				$detailsParam["dType"]=PAGE_LIST;
-	$detailsParam["dShortTable"] = "alumno_profesor_curso";
-	$detailsParam["dCaptionTable"] = GetTableCaption("alumno_profesor_curso");
+	$detailsParam["dShortTable"] = "mimatricula_curso_horario_view";
+	$detailsParam["dCaptionTable"] = GetTableCaption("mimatricula_curso_horario_view");
 	$detailsParam["masterKeys"] =array();
 	$detailsParam["detailKeys"] =array();
 
@@ -852,9 +852,14 @@ $detailsTablesData["matriculacab"] = array();
 
 	$detailsTablesData["matriculacab"][$dIndex]["masterKeys"][]="IdmatriculaCab";
 
+	$detailsTablesData["matriculacab"][$dIndex]["masterKeys"][]="idAlumno";
+
 				$detailsTablesData["matriculacab"][$dIndex]["detailKeys"] = array();
 
 	$detailsTablesData["matriculacab"][$dIndex]["detailKeys"][]="IdmatriculaCab";
+
+		
+	$detailsTablesData["matriculacab"][$dIndex]["detailKeys"][]="idAlumno";
 
 // tables which are master tables for current table (detail)
 $masterTablesData["matriculacab"] = array();

@@ -3068,10 +3068,10 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "horarios" ] = "horarios";
 	$projectEntities[ "matriculacab" ] = array( "url" => "matriculacab", "type" => 0 );
 	$projectEntitiesReverse[ "matriculacab" ] = "matriculacab";
-	$projectEntities[ "alumno_profesor_curso" ] = array( "url" => "alumno_profesor_curso", "type" => 0 );
-	$projectEntitiesReverse[ "alumno_profesor_curso" ] = "alumno_profesor_curso";
 	$projectEntities[ "profesor_curso_view" ] = array( "url" => "profesor_curso_view", "type" => 0 );
 	$projectEntitiesReverse[ "profesor_curso_view" ] = "profesor_curso_view";
+	$projectEntities[ "mimatricula_curso_horario_view" ] = array( "url" => "mimatricula_curso_horario_view", "type" => 0 );
+	$projectEntitiesReverse[ "mimatricula_curso_horario_view" ] = "mimatricula_curso_horario_view";
 }
 
 function findTable( $table ) {

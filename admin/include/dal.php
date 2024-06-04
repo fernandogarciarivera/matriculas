@@ -52,6 +52,7 @@ class tDAL
 	var $tblmatriculas_at_127_0_0_1__curso;
 	var $tblmatriculas_at_127_0_0_1__horarios;
 	var $tblmatriculas_at_127_0_0_1__matriculacab;
+	var $tblmatriculas_at_127_0_0_1__mimatricula_curso_horario_view;
 	var $tblmatriculas_at_127_0_0_1__profesor;
 	var $tblmatriculas_at_127_0_0_1__profesor_curso;
 	var $tblmatriculas_at_127_0_0_1__profesor_curso_view;
@@ -67,6 +68,7 @@ class tDAL
 		$this->lstTables[] = array("name" => "curso", "varname" => "matriculas_at_127_0_0_1__curso", "altvarname" => "curso", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 		$this->lstTables[] = array("name" => "horarios", "varname" => "matriculas_at_127_0_0_1__horarios", "altvarname" => "horarios", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 		$this->lstTables[] = array("name" => "matriculacab", "varname" => "matriculas_at_127_0_0_1__matriculacab", "altvarname" => "matriculacab", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
+		$this->lstTables[] = array("name" => "mimatricula_curso_horario_view", "varname" => "matriculas_at_127_0_0_1__mimatricula_curso_horario_view", "altvarname" => "mimatricula_curso_horario_view", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 		$this->lstTables[] = array("name" => "profesor", "varname" => "matriculas_at_127_0_0_1__profesor", "altvarname" => "profesor", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 		$this->lstTables[] = array("name" => "profesor_curso", "varname" => "matriculas_at_127_0_0_1__profesor_curso", "altvarname" => "profesor_curso", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 		$this->lstTables[] = array("name" => "profesor_curso_view", "varname" => "matriculas_at_127_0_0_1__profesor_curso_view", "altvarname" => "profesor_curso_view", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");

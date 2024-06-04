@@ -179,24 +179,7 @@
 </span>	 
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
-</span>	 
-		{BEGIN print_details}
-<div>
-	<label for="printDetailsToggler{$id}">
-		<input type="checkbox" id="printDetailsToggler{$id}">
-		Detalles de impresión	</label>
-	<div  id="printdetailstables{$id}" style="display:none;">
-											{BEGIN print_details_horarios}
-			<div>
-				<label for="printDetailshorarios{$id}">
-					<input type="checkbox" value="horarios" id="printDetailshorarios{$id}" checked>
-					Horarios				</label>
-			</div>
-			{END print_details_horarios}
-						</div>
-</div>
-{END print_details}
-		</div>					</div>
+</span>		</div>					</div>
 	</div>		
 {END above-grid_block}
 						</div>

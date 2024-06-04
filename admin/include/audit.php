@@ -326,11 +326,11 @@ class AuditTrailTable
 		{
 			return false;
 		}
-		if($table=="alumno_profesor_curso")
+		if($table=="profesor_curso_view")
 		{
 			return false;
 		}
-		if($table=="profesor_curso_view")
+		if($table=="mimatricula_curso_horario_view")
 		{
 			return false;
 		}
@@ -666,11 +666,11 @@ class AuditTrailFile
 		{
 			return false;
 		}
-		if($table=="alumno_profesor_curso")
+		if($table=="profesor_curso_view")
 		{
 			return false;
 		}
-		if($table=="profesor_curso_view")
+		if($table=="mimatricula_curso_horario_view")
 		{
 			return false;
 		}

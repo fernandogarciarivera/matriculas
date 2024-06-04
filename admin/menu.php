@@ -21,6 +21,8 @@ require_once(getabspath("classes/cipherer.php"));
 
 include_once(getabspath("include/matriculacab_events.php"));
 $tableEvents["matriculacab"] = new eventclass_matriculacab;
+include_once(getabspath("include/mimatricula_curso_horario_view_events.php"));
+$tableEvents["mimatricula_curso_horario_view"] = new eventclass_mimatricula_curso_horario_view;
 
 $xt = new Xtempl();
 

@@ -1,5 +1,5 @@
 <?php
-			$optionsArray = array( 'details' => array( 'alumno_profesor_curso' => array( 'displayPreview' => 1 ) ),
+			$optionsArray = array( 'details' => array( 'mimatricula_curso_horario_view' => array( 'displayPreview' => 1 ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'documento',
 'idAlumno',
@@ -139,7 +139,7 @@
 'type' => 'integrated_edit_field',
 'orientation' => 0 ),
 'details_preview' => array( 'type' => 'details_preview',
-'table' => 'alumno_profesor_curso',
+'table' => 'mimatricula_curso_horario_view',
 'items' => array(  ),
 'popup' => false ) ),
 'dbProps' => array(  ),

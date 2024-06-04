@@ -622,9 +622,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "86_1717466373";
+$projectBuildKey = "101_1717513265";
 $wizardBuildKey = "33793";
-$projectBuildNumber = "86";
+$projectBuildNumber = "101";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -651,8 +651,8 @@ $tableCaptions["Spanish"]["curso"] = "Curso";
 $tableCaptions["Spanish"]["profesor_curso"] = "Profesor Curso";
 $tableCaptions["Spanish"]["horarios"] = "Horarios";
 $tableCaptions["Spanish"]["matriculacab"] = "Matriculacab";
-$tableCaptions["Spanish"]["alumno_profesor_curso"] = "Cursos Matriculados";
 $tableCaptions["Spanish"]["profesor_curso_view"] = "Profesor Curso View";
+$tableCaptions["Spanish"]["mimatricula_curso_horario_view"] = "Mimatricula Curso Horario View";
 
 
 $globalEvents = new class_GlobalEvents;

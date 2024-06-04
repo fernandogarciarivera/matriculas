@@ -100,84 +100,32 @@
 				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
 		</div>
 		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_Docente}
+																		{BEGIN searchCtrlBlock_NomProfesor}
 
 
-		<div class="form-group srchPanelRow {$filterRow_class_Docente}" {$filterRow_attrs_Docente}>
-			<label>{$label profesor_curso_view Docente }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_Docente}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_Docente}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_Docente}</span>
-						</div>
-		{END searchCtrlBlock_Docente}
-																{BEGIN searchCtrlBlock_HorFin}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_HorFin}" {$filterRow_attrs_HorFin}>
-			<label>{$label profesor_curso_view HorFin }</label>
+		<div class="form-group srchPanelRow {$filterRow_class_NomProfesor}" {$filterRow_attrs_NomProfesor}>
+			<label>{$label profesor_curso_view NomProfesor }</label>
 
 							{$delCtrlButt}
 			
-								<span class="rnr-searchtype">{$searchtype_HorFin}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_HorFin}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_HorFin}</span>
+								<span class="rnr-searchtype">{$searchtype_NomProfesor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_NomProfesor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_NomProfesor}</span>
 						</div>
-		{END searchCtrlBlock_HorFin}
-																{BEGIN searchCtrlBlock_HorIni}
+		{END searchCtrlBlock_NomProfesor}
+																{BEGIN searchCtrlBlock_ApellidosProfesor}
 
 
-		<div class="form-group srchPanelRow {$filterRow_class_HorIni}" {$filterRow_attrs_HorIni}>
-			<label>{$label profesor_curso_view HorIni }</label>
+		<div class="form-group srchPanelRow {$filterRow_class_ApellidosProfesor}" {$filterRow_attrs_ApellidosProfesor}>
+			<label>{$label profesor_curso_view ApellidosProfesor }</label>
 
 							{$delCtrlButt}
 			
-								<span class="rnr-searchtype">{$searchtype_HorIni}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_HorIni}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_HorIni}</span>
+								<span class="rnr-searchtype">{$searchtype_ApellidosProfesor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_ApellidosProfesor}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_ApellidosProfesor}</span>
 						</div>
-		{END searchCtrlBlock_HorIni}
-																{BEGIN searchCtrlBlock_txtDia}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_txtDia}" {$filterRow_attrs_txtDia}>
-			<label>{$label profesor_curso_view txtDia }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_txtDia}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_txtDia}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_txtDia}</span>
-						</div>
-		{END searchCtrlBlock_txtDia}
-																{BEGIN searchCtrlBlock_numDia}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_numDia}" {$filterRow_attrs_numDia}>
-			<label>{$label profesor_curso_view numDia }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_numDia}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_numDia}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_numDia}</span>
-						</div>
-		{END searchCtrlBlock_numDia}
-																{BEGIN searchCtrlBlock_IdHorario}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_IdHorario}" {$filterRow_attrs_IdHorario}>
-			<label>{$label profesor_curso_view IdHorario }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_IdHorario}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_IdHorario}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_IdHorario}</span>
-						</div>
-		{END searchCtrlBlock_IdHorario}
+		{END searchCtrlBlock_ApellidosProfesor}
 		
 
 	</div>
@@ -227,7 +175,7 @@
 {END breadcrumb}			</span>
 							 
 							 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
+				<span class="navbar-form r-align-right r-ori-vert navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
 				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
 
 <div  class="input-group">
@@ -249,35 +197,6 @@
 </div>
 		
 </span>			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
-				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
-	<span class="dropdown ">
-		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-							<span class="glyphicon glyphicon-cog"></span>
-									<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="showOptPanel{$id}"  title="" >
-				
-		Mostrar panel de búsqueda		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="hideOptPanel{$id}"  title="" >
-				
-		Ocultar panel de búsqueda		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-					</ul>
-	</span>
-</span>
-			</span>
 								</nav>
 {END supertop_block}
 						{$locking}
@@ -338,8 +257,12 @@
 		content: "{$label profesor_curso_view idProfesor}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Docente"]:before {
-		content: "{$label profesor_curso_view Docente}";
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="NomProfesor"]:before {
+		content: "{$label profesor_curso_view NomProfesor}";
+	}
+	
+	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="ApellidosProfesor"]:before {
+		content: "{$label profesor_curso_view ApellidosProfesor}";
 	}
 	
 	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="idCurso"]:before {
@@ -366,26 +289,6 @@
 		content: "{$label profesor_curso_view idCicloEscolar}";
 	}
 	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="IdHorario"]:before {
-		content: "{$label profesor_curso_view IdHorario}";
-	}
-	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="numDia"]:before {
-		content: "{$label profesor_curso_view numDia}";
-	}
-	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="txtDia"]:before {
-		content: "{$label profesor_curso_view txtDia}";
-	}
-	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="HorIni"]:before {
-		content: "{$label profesor_curso_view HorIni}";
-	}
-	
-	[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="HorFin"]:before {
-		content: "{$label profesor_curso_view HorFin}";
-	}
-	
 }
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table {$grid_classes}  r-flexgrid rnr-b-grid rnr-gridtable" 
@@ -408,22 +311,22 @@
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Docente_class}
+		 r-ori-vert				{$NombreCurso_class}
 			"
 
-			data-field="Docente"
+			data-field="NombreCurso"
 	
 	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Docente_fieldheadercolumn}
-	{BEGIN Docente_fieldheader}
-	<SPAN {$Docente_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Docente">
-	{$label profesor_curso_view Docente }	{$arrow_icon_Docente}
+		{BEGIN NombreCurso_fieldheadercolumn}
+	{BEGIN NombreCurso_fieldheader}
+	<SPAN {$NombreCurso_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="NombreCurso">
+	{$label profesor_curso_view NombreCurso }	{$arrow_icon_NombreCurso}
 	</SPAN>
-	{END Docente_fieldheader}
-{END Docente_fieldheadercolumn}
+	{END NombreCurso_fieldheader}
+{END NombreCurso_fieldheadercolumn}
 
 	
 	</th>
@@ -435,22 +338,22 @@
 	{$cell_grid_headcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$NombreCurso_class}
+		 r-ori-vert				{$Seccion_class}
 			"
 
-			data-field="NombreCurso"
+			data-field="Seccion"
 	
 	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN NombreCurso_fieldheadercolumn}
-	{BEGIN NombreCurso_fieldheader}
-	<SPAN {$NombreCurso_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="NombreCurso">
-	{$label profesor_curso_view NombreCurso }	{$arrow_icon_NombreCurso}
+		{BEGIN Seccion_fieldheadercolumn}
+	{BEGIN Seccion_fieldheader}
+	<SPAN {$Seccion_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Seccion">
+	{$label profesor_curso_view Seccion }	{$arrow_icon_Seccion}
 	</SPAN>
-	{END NombreCurso_fieldheader}
-{END NombreCurso_fieldheadercolumn}
+	{END Seccion_fieldheader}
+{END Seccion_fieldheadercolumn}
 
 	
 	</th>
@@ -462,22 +365,22 @@
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Seccion_class}
+		 r-ori-vert				{$Academia_class}
 			"
 
-			data-field="Seccion"
+			data-field="Academia"
 	
 	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Seccion_fieldheadercolumn}
-	{BEGIN Seccion_fieldheader}
-	<SPAN {$Seccion_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Seccion">
-	{$label profesor_curso_view Seccion }	{$arrow_icon_Seccion}
+		{BEGIN Academia_fieldheadercolumn}
+	{BEGIN Academia_fieldheader}
+	<SPAN {$Academia_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Academia">
+	{$label profesor_curso_view Academia }	{$arrow_icon_Academia}
 	</SPAN>
-	{END Seccion_fieldheader}
-{END Seccion_fieldheadercolumn}
+	{END Academia_fieldheader}
+{END Academia_fieldheadercolumn}
 
 	
 	</th>
@@ -489,22 +392,22 @@
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Academia_class}
+		 r-ori-vert				{$idCicloEscolar_class}
 			"
 
-			data-field="Academia"
+			data-field="idCicloEscolar"
 	
 	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN Academia_fieldheadercolumn}
-	{BEGIN Academia_fieldheader}
-	<SPAN {$Academia_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Academia">
-	{$label profesor_curso_view Academia }	{$arrow_icon_Academia}
+		{BEGIN idCicloEscolar_fieldheadercolumn}
+	{BEGIN idCicloEscolar_fieldheader}
+	<SPAN {$idCicloEscolar_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="idCicloEscolar">
+	{$label profesor_curso_view idCicloEscolar }	{$arrow_icon_idCicloEscolar}
 	</SPAN>
-	{END Academia_fieldheader}
-{END Academia_fieldheadercolumn}
+	{END idCicloEscolar_fieldheader}
+{END idCicloEscolar_fieldheadercolumn}
 
 	
 	</th>
@@ -516,22 +419,22 @@
 	{$cell_grid_headcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$idCicloEscolar_class}
+		 r-ori-vert				{$NomProfesor_class}
 			"
 
-			data-field="idCicloEscolar"
+			data-field="NomProfesor"
 	
 	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN idCicloEscolar_fieldheadercolumn}
-	{BEGIN idCicloEscolar_fieldheader}
-	<SPAN {$idCicloEscolar_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="idCicloEscolar">
-	{$label profesor_curso_view idCicloEscolar }	{$arrow_icon_idCicloEscolar}
+		{BEGIN NomProfesor_fieldheadercolumn}
+	{BEGIN NomProfesor_fieldheader}
+	<SPAN {$NomProfesor_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="NomProfesor">
+	{$label profesor_curso_view NomProfesor }	{$arrow_icon_NomProfesor}
 	</SPAN>
-	{END idCicloEscolar_fieldheader}
-{END idCicloEscolar_fieldheadercolumn}
+	{END NomProfesor_fieldheader}
+{END NomProfesor_fieldheadercolumn}
 
 	
 	</th>
@@ -543,134 +446,26 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$IdHorario_class}
+		 r-ori-vert				{$ApellidosProfesor_class}
 			"
 
-			data-field="IdHorario"
+			data-field="ApellidosProfesor"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN IdHorario_fieldheadercolumn}
-	{BEGIN IdHorario_fieldheader}
-	<SPAN {$IdHorario_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IdHorario">
-	{$label profesor_curso_view IdHorario }	{$arrow_icon_IdHorario}
+		{BEGIN ApellidosProfesor_fieldheadercolumn}
+	{BEGIN ApellidosProfesor_fieldheader}
+	<SPAN {$ApellidosProfesor_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ApellidosProfesor">
+	{$label profesor_curso_view ApellidosProfesor }	{$arrow_icon_ApellidosProfesor}
 	</SPAN>
-	{END IdHorario_fieldheader}
-{END IdHorario_fieldheadercolumn}
+	{END ApellidosProfesor_fieldheader}
+{END ApellidosProfesor_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field5}
-				 
-					{BEGIN cellblock_grid_headcell_field6}
-	<th
-	
-	{$cell_grid_headcell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$numDia_class}
-			"
-
-			data-field="numDia"
-	
-	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN numDia_fieldheadercolumn}
-	{BEGIN numDia_fieldheader}
-	<SPAN {$numDia_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="numDia">
-	{$label profesor_curso_view numDia }	{$arrow_icon_numDia}
-	</SPAN>
-	{END numDia_fieldheader}
-{END numDia_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field6}
-				 
-					{BEGIN cellblock_grid_headcell_field7}
-	<th
-	
-	{$cell_grid_headcell_field7}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$txtDia_class}
-			"
-
-			data-field="txtDia"
-	
-	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN txtDia_fieldheadercolumn}
-	{BEGIN txtDia_fieldheader}
-	<SPAN {$txtDia_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="txtDia">
-	{$label profesor_curso_view txtDia }	{$arrow_icon_txtDia}
-	</SPAN>
-	{END txtDia_fieldheader}
-{END txtDia_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field7}
-				 
-					{BEGIN cellblock_grid_headcell_field8}
-	<th
-	
-	{$cell_grid_headcell_field8}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$HorIni_class}
-			"
-
-			data-field="HorIni"
-	
-	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN HorIni_fieldheadercolumn}
-	{BEGIN HorIni_fieldheader}
-	<SPAN {$HorIni_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="HorIni">
-	{$label profesor_curso_view HorIni }	{$arrow_icon_HorIni}
-	</SPAN>
-	{END HorIni_fieldheader}
-{END HorIni_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field8}
-				 
-					{BEGIN cellblock_grid_headcell_field9}
-	<th
-	
-	{$cell_grid_headcell_field9}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$HorFin_class}
-			"
-
-			data-field="HorFin"
-	
-	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN HorFin_fieldheadercolumn}
-	{BEGIN HorFin_fieldheader}
-	<SPAN {$HorFin_orderlinkattrs} data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="HorFin">
-	{$label profesor_curso_view HorFin }	{$arrow_icon_HorFin}
-	</SPAN>
-	{END HorFin_fieldheader}
-{END HorFin_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field9}
 							</tr>
 					 
 					 
@@ -693,35 +488,12 @@
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$Docente_class}
-			"
-
-			data-field="Docente"
-	
-	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN Docente_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Docente" data-default-width >
-{$Docente_value}
-</span>
-{END Docente_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field}
-				 
-					{BEGIN cellblock_grid_cell_field1}
-	<td
-	
-	{$cell_grid_cell_field1}
-	{$recordattrs}
-	class="
 		 r-ori-vert				{$NombreCurso_class}
 			"
 
 			data-field="NombreCurso"
 	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -731,12 +503,12 @@
 </span>
 {END NombreCurso_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field1}
+	{END cellblock_grid_cell_field}
 				 
-					{BEGIN cellblock_grid_cell_field2}
+					{BEGIN cellblock_grid_cell_field1}
 	<td
 	
-	{$cell_grid_cell_field2}
+	{$cell_grid_cell_field1}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$Seccion_class}
@@ -744,7 +516,7 @@
 
 			data-field="Seccion"
 	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -754,12 +526,12 @@
 </span>
 {END Seccion_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field2}
+	{END cellblock_grid_cell_field1}
 				 
-					{BEGIN cellblock_grid_cell_field3}
+					{BEGIN cellblock_grid_cell_field2}
 	<td
 	
-	{$cell_grid_cell_field3}
+	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$Academia_class}
@@ -767,7 +539,7 @@
 
 			data-field="Academia"
 	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -777,12 +549,12 @@
 </span>
 {END Academia_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field3}
+	{END cellblock_grid_cell_field2}
 				 
-					{BEGIN cellblock_grid_cell_field4}
+					{BEGIN cellblock_grid_cell_field3}
 	<td
 	
-	{$cell_grid_cell_field4}
+	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
 		 r-ori-vert				{$idCicloEscolar_class}
@@ -790,7 +562,7 @@
 
 			data-field="idCicloEscolar"
 	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -800,6 +572,29 @@
 </span>
 {END idCicloEscolar_fieldcolumn}	
 	</td>
+	{END cellblock_grid_cell_field3}
+				 
+					{BEGIN cellblock_grid_cell_field4}
+	<td
+	
+	{$cell_grid_cell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert				{$NomProfesor_class}
+			"
+
+			data-field="NomProfesor"
+	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN NomProfesor_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="NomProfesor" data-default-width >
+{$NomProfesor_value}
+</span>
+{END NomProfesor_fieldcolumn}	
+	</td>
 	{END cellblock_grid_cell_field4}
 				 
 					{BEGIN cellblock_grid_cell_field5}
@@ -808,114 +603,22 @@
 	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert				{$IdHorario_class}
+		 r-ori-vert				{$ApellidosProfesor_class}
 			"
 
-			data-field="IdHorario"
+			data-field="ApellidosProfesor"
 	
 	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN IdHorario_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="IdHorario" data-default-width >
-{$IdHorario_value}
+		{BEGIN ApellidosProfesor_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="ApellidosProfesor" data-default-width >
+{$ApellidosProfesor_value}
 </span>
-{END IdHorario_fieldcolumn}	
+{END ApellidosProfesor_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field5}
-				 
-					{BEGIN cellblock_grid_cell_field6}
-	<td
-	
-	{$cell_grid_cell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$numDia_class}
-			"
-
-			data-field="numDia"
-	
-	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN numDia_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="numDia" data-default-width >
-{$numDia_value}
-</span>
-{END numDia_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field6}
-				 
-					{BEGIN cellblock_grid_cell_field7}
-	<td
-	
-	{$cell_grid_cell_field7}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$txtDia_class}
-			"
-
-			data-field="txtDia"
-	
-	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN txtDia_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="txtDia" data-default-width >
-{$txtDia_value}
-</span>
-{END txtDia_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field7}
-				 
-					{BEGIN cellblock_grid_cell_field8}
-	<td
-	
-	{$cell_grid_cell_field8}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$HorIni_class}
-			"
-
-			data-field="HorIni"
-	
-	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN HorIni_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="HorIni" data-default-width >
-{$HorIni_value}
-</span>
-{END HorIni_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field8}
-				 
-					{BEGIN cellblock_grid_cell_field9}
-	<td
-	
-	{$cell_grid_cell_field9}
-	{$recordattrs}
-	class="
-		 r-ori-vert				{$HorFin_class}
-			"
-
-			data-field="HorFin"
-	
-	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN HorFin_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="HorFin" data-default-width >
-{$HorFin_value}
-</span>
-{END HorFin_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field9}
 							</tr>
 					 
 					
@@ -1027,70 +730,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field5}
-				 
-					{BEGIN cellblock_grid_footcell_field6}
-	<td
-	
-	{$cell_grid_footcell_field6}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="profesor_curso_view_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field6}
-				 
-					{BEGIN cellblock_grid_footcell_field7}
-	<td
-	
-	{$cell_grid_footcell_field7}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="profesor_curso_view_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field7}
-				 
-					{BEGIN cellblock_grid_footcell_field8}
-	<td
-	
-	{$cell_grid_footcell_field8}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="profesor_curso_view_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field8}
-				 
-					{BEGIN cellblock_grid_footcell_field9}
-	<td
-	
-	{$cell_grid_footcell_field9}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="profesor_curso_view_list"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_field9}
 							</tr>
 					
 					</tfoot>

@@ -322,8 +322,8 @@ class ConnectionManager
 		$connectionsIds["profesor_curso"] = "matriculas_at_127_0_0_1";
 		$connectionsIds["horarios"] = "matriculas_at_127_0_0_1";
 		$connectionsIds["matriculacab"] = "matriculas_at_127_0_0_1";
-		$connectionsIds["alumno_profesor_curso"] = "matriculas_at_127_0_0_1";
 		$connectionsIds["profesor_curso_view"] = "matriculas_at_127_0_0_1";
+		$connectionsIds["mimatricula_curso_horario_view"] = "matriculas_at_127_0_0_1";
 		$this->_tablesConnectionIds = $connectionsIds;
 	}
 	

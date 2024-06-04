@@ -6,6 +6,7 @@ $dalTablealumno_profesor_curso["idAlumno"] = array("type"=>3,"varname"=>"idAlumn
 $dalTablealumno_profesor_curso["idCursoDicta"] = array("type"=>3,"varname"=>"idCursoDicta", "name" => "idCursoDicta");
 $dalTablealumno_profesor_curso["idCurso"] = array("type"=>3,"varname"=>"idCurso", "name" => "idCurso");
 $dalTablealumno_profesor_curso["idProfesor"] = array("type"=>3,"varname"=>"idProfesor", "name" => "idProfesor");
+$dalTablealumno_profesor_curso["IdHorario"] = array("type"=>3,"varname"=>"IdHorario", "name" => "IdHorario");
 $dalTablealumno_profesor_curso["estadoCurso"] = array("type"=>3,"varname"=>"estadoCurso", "name" => "estadoCurso");
 $dalTablealumno_profesor_curso["estadoMatricula"] = array("type"=>3,"varname"=>"estadoMatricula", "name" => "estadoMatricula");
 	$dalTablealumno_profesor_curso["idMatricula"]["key"]=true;

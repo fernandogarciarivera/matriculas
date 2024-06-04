@@ -51,24 +51,12 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelsprofesor_curso_view["Spanish"]["idCicloEscolar"] = "Id Ciclo Escolar";
 	$fieldToolTipsprofesor_curso_view["Spanish"]["idCicloEscolar"] = "";
 	$placeHoldersprofesor_curso_view["Spanish"]["idCicloEscolar"] = "";
-	$fieldLabelsprofesor_curso_view["Spanish"]["Docente"] = "Docente";
-	$fieldToolTipsprofesor_curso_view["Spanish"]["Docente"] = "";
-	$placeHoldersprofesor_curso_view["Spanish"]["Docente"] = "";
-	$fieldLabelsprofesor_curso_view["Spanish"]["IdHorario"] = "Id Horario";
-	$fieldToolTipsprofesor_curso_view["Spanish"]["IdHorario"] = "";
-	$placeHoldersprofesor_curso_view["Spanish"]["IdHorario"] = "";
-	$fieldLabelsprofesor_curso_view["Spanish"]["numDia"] = "Num Dia";
-	$fieldToolTipsprofesor_curso_view["Spanish"]["numDia"] = "";
-	$placeHoldersprofesor_curso_view["Spanish"]["numDia"] = "";
-	$fieldLabelsprofesor_curso_view["Spanish"]["txtDia"] = "Txt Dia";
-	$fieldToolTipsprofesor_curso_view["Spanish"]["txtDia"] = "";
-	$placeHoldersprofesor_curso_view["Spanish"]["txtDia"] = "";
-	$fieldLabelsprofesor_curso_view["Spanish"]["HorIni"] = "Hor Ini";
-	$fieldToolTipsprofesor_curso_view["Spanish"]["HorIni"] = "";
-	$placeHoldersprofesor_curso_view["Spanish"]["HorIni"] = "";
-	$fieldLabelsprofesor_curso_view["Spanish"]["HorFin"] = "Hor Fin";
-	$fieldToolTipsprofesor_curso_view["Spanish"]["HorFin"] = "";
-	$placeHoldersprofesor_curso_view["Spanish"]["HorFin"] = "";
+	$fieldLabelsprofesor_curso_view["Spanish"]["NomProfesor"] = "Nom Profesor";
+	$fieldToolTipsprofesor_curso_view["Spanish"]["NomProfesor"] = "";
+	$placeHoldersprofesor_curso_view["Spanish"]["NomProfesor"] = "";
+	$fieldLabelsprofesor_curso_view["Spanish"]["ApellidosProfesor"] = "Apellidos Profesor";
+	$fieldToolTipsprofesor_curso_view["Spanish"]["ApellidosProfesor"] = "";
+	$placeHoldersprofesor_curso_view["Spanish"]["ApellidosProfesor"] = "";
 	if (count($fieldToolTipsprofesor_curso_view["Spanish"]))
 		$tdataprofesor_curso_view[".isUseToolTips"] = true;
 }
@@ -114,14 +102,14 @@ $pages = $tdataprofesor_curso_view[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataprofesor_curso_view[".edit"] = true;
-	$tdataprofesor_curso_view[".afterEditAction"] = 1;
+	$tdataprofesor_curso_view[".afterEditAction"] = 0;
 	$tdataprofesor_curso_view[".closePopupAfterEdit"] = 1;
 	$tdataprofesor_curso_view[".afterEditActionDetTable"] = "";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdataprofesor_curso_view[".add"] = true;
-$tdataprofesor_curso_view[".afterAddAction"] = 1;
+$tdataprofesor_curso_view[".afterAddAction"] = 0;
 $tdataprofesor_curso_view[".closePopupAfterAdd"] = 1;
 $tdataprofesor_curso_view[".afterAddActionDetTable"] = "";
 }
@@ -193,18 +181,14 @@ $tdataprofesor_curso_view[".requiredSearchFields"] = array();
 $tdataprofesor_curso_view[".googleLikeFields"] = array();
 $tdataprofesor_curso_view[".googleLikeFields"][] = "idCursoDicta";
 $tdataprofesor_curso_view[".googleLikeFields"][] = "idProfesor";
-$tdataprofesor_curso_view[".googleLikeFields"][] = "Docente";
+$tdataprofesor_curso_view[".googleLikeFields"][] = "NomProfesor";
+$tdataprofesor_curso_view[".googleLikeFields"][] = "ApellidosProfesor";
 $tdataprofesor_curso_view[".googleLikeFields"][] = "idCurso";
 $tdataprofesor_curso_view[".googleLikeFields"][] = "NombreCurso";
 $tdataprofesor_curso_view[".googleLikeFields"][] = "Seccion";
 $tdataprofesor_curso_view[".googleLikeFields"][] = "NRC";
 $tdataprofesor_curso_view[".googleLikeFields"][] = "Academia";
 $tdataprofesor_curso_view[".googleLikeFields"][] = "idCicloEscolar";
-$tdataprofesor_curso_view[".googleLikeFields"][] = "IdHorario";
-$tdataprofesor_curso_view[".googleLikeFields"][] = "numDia";
-$tdataprofesor_curso_view[".googleLikeFields"][] = "txtDia";
-$tdataprofesor_curso_view[".googleLikeFields"][] = "HorIni";
-$tdataprofesor_curso_view[".googleLikeFields"][] = "HorFin";
 
 
 
@@ -239,8 +223,8 @@ $tdataprofesor_curso_view[".strOrderBy"] = $tstrOrderBy;
 
 $tdataprofesor_curso_view[".orderindexes"] = array();
 
-$tdataprofesor_curso_view[".sqlHead"] = "SELECT pc.idCursoDicta,      pc.idProfesor,      CONCAT(pc.NomProfesor, '', pc.ApellidosProfesor) AS Docente,      pc.idCurso,      pc.NombreCurso,      pc.Seccion,      pc.NRC,      pc.Academia,      pc.idCicloEscolar,      c.IdHorario, c.numDia, c.txtDia, c.HorIni, c.HorFin";
-$tdataprofesor_curso_view[".sqlFrom"] = "FROM      matriculas.profesor_curso_view AS pc          LEFT JOIN      matriculas.horarios AS c ON c.idCursoDicta = pc.idCursoDicta          AND c.idProfesor = pc.idProfesor          AND c.idCurso = pc.idCurso";
+$tdataprofesor_curso_view[".sqlHead"] = "SELECT idCursoDicta,  	idProfesor,  	NomProfesor,  	ApellidosProfesor,  	idCurso,  	NombreCurso,  	Seccion,  	NRC,  	Academia,  	idCicloEscolar";
+$tdataprofesor_curso_view[".sqlFrom"] = "FROM profesor_curso_view";
 $tdataprofesor_curso_view[".sqlWhereExpr"] = "";
 $tdataprofesor_curso_view[".sqlTail"] = "";
 
@@ -304,7 +288,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 		$fdata["strField"] = "idCursoDicta";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "pc.idCursoDicta";
+	$fdata["FullName"] = "idCursoDicta";
 
 	
 	
@@ -439,7 +423,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 		$fdata["strField"] = "idProfesor";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "pc.idProfesor";
+	$fdata["FullName"] = "idProfesor";
 
 	
 	
@@ -558,14 +542,14 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 
 	$tdataprofesor_curso_view["idProfesor"] = $fdata;
 		$tdataprofesor_curso_view[".searchableFields"][] = "idProfesor";
-//	Docente
+//	NomProfesor
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 3;
-	$fdata["strName"] = "Docente";
-	$fdata["GoodName"] = "Docente";
-	$fdata["ownerTable"] = "";
-	$fdata["Label"] = GetFieldLabel("profesor_curso_view","Docente");
+	$fdata["strName"] = "NomProfesor";
+	$fdata["GoodName"] = "NomProfesor";
+	$fdata["ownerTable"] = "profesor_curso_view";
+	$fdata["Label"] = GetFieldLabel("profesor_curso_view","NomProfesor");
 	$fdata["FieldType"] = 200;
 
 	
@@ -573,10 +557,10 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 	
 			
 
-		$fdata["strField"] = "Docente";
+		$fdata["strField"] = "NomProfesor";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "CONCAT(pc.NomProfesor, '', pc.ApellidosProfesor)";
+	$fdata["FullName"] = "NomProfesor";
 
 	
 	
@@ -639,7 +623,8 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 			$edata["HTML5InuptType"] = "text";
 
 		$edata["EditParams"] = "";
-		
+			$edata["EditParams"].= " maxlength=45";
+
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -690,12 +675,147 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 //end of Filters settings
 
 
-	$tdataprofesor_curso_view["Docente"] = $fdata;
-		$tdataprofesor_curso_view[".searchableFields"][] = "Docente";
-//	idCurso
+	$tdataprofesor_curso_view["NomProfesor"] = $fdata;
+		$tdataprofesor_curso_view[".searchableFields"][] = "NomProfesor";
+//	ApellidosProfesor
 //	Custom field settings
 	$fdata = array();
 	$fdata["Index"] = 4;
+	$fdata["strName"] = "ApellidosProfesor";
+	$fdata["GoodName"] = "ApellidosProfesor";
+	$fdata["ownerTable"] = "profesor_curso_view";
+	$fdata["Label"] = GetFieldLabel("profesor_curso_view","ApellidosProfesor");
+	$fdata["FieldType"] = 200;
+
+	
+	
+	
+			
+
+		$fdata["strField"] = "ApellidosProfesor";
+
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "ApellidosProfesor";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypes"] = ".+$";
+		$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+			$edata["EditParams"].= " maxlength=45";
+
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+	
+	
+	//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataprofesor_curso_view["ApellidosProfesor"] = $fdata;
+		$tdataprofesor_curso_view[".searchableFields"][] = "ApellidosProfesor";
+//	idCurso
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 5;
 	$fdata["strName"] = "idCurso";
 	$fdata["GoodName"] = "idCurso";
 	$fdata["ownerTable"] = "profesor_curso_view";
@@ -710,7 +830,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 		$fdata["strField"] = "idCurso";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "pc.idCurso";
+	$fdata["FullName"] = "idCurso";
 
 	
 	
@@ -832,7 +952,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 //	NombreCurso
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 5;
+	$fdata["Index"] = 6;
 	$fdata["strName"] = "NombreCurso";
 	$fdata["GoodName"] = "NombreCurso";
 	$fdata["ownerTable"] = "profesor_curso_view";
@@ -847,7 +967,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 		$fdata["strField"] = "NombreCurso";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "pc.NombreCurso";
+	$fdata["FullName"] = "NombreCurso";
 
 	
 	
@@ -967,7 +1087,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 //	Seccion
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 6;
+	$fdata["Index"] = 7;
 	$fdata["strName"] = "Seccion";
 	$fdata["GoodName"] = "Seccion";
 	$fdata["ownerTable"] = "profesor_curso_view";
@@ -982,7 +1102,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 		$fdata["strField"] = "Seccion";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "pc.Seccion";
+	$fdata["FullName"] = "Seccion";
 
 	
 	
@@ -1102,7 +1222,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 //	NRC
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 7;
+	$fdata["Index"] = 8;
 	$fdata["strName"] = "NRC";
 	$fdata["GoodName"] = "NRC";
 	$fdata["ownerTable"] = "profesor_curso_view";
@@ -1117,7 +1237,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 		$fdata["strField"] = "NRC";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "pc.NRC";
+	$fdata["FullName"] = "NRC";
 
 	
 	
@@ -1237,7 +1357,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 //	Academia
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 8;
+	$fdata["Index"] = 9;
 	$fdata["strName"] = "Academia";
 	$fdata["GoodName"] = "Academia";
 	$fdata["ownerTable"] = "profesor_curso_view";
@@ -1252,7 +1372,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 		$fdata["strField"] = "Academia";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "pc.Academia";
+	$fdata["FullName"] = "Academia";
 
 	
 	
@@ -1372,7 +1492,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 //	idCicloEscolar
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 9;
+	$fdata["Index"] = 10;
 	$fdata["strName"] = "idCicloEscolar";
 	$fdata["GoodName"] = "idCicloEscolar";
 	$fdata["ownerTable"] = "profesor_curso_view";
@@ -1387,7 +1507,7 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 		$fdata["strField"] = "idCicloEscolar";
 
 		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "pc.idCicloEscolar";
+	$fdata["FullName"] = "idCicloEscolar";
 
 	
 	
@@ -1504,695 +1624,6 @@ $tdataprofesor_curso_view[".hideMobileList"] = array();
 
 	$tdataprofesor_curso_view["idCicloEscolar"] = $fdata;
 		$tdataprofesor_curso_view[".searchableFields"][] = "idCicloEscolar";
-//	IdHorario
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 10;
-	$fdata["strName"] = "IdHorario";
-	$fdata["GoodName"] = "IdHorario";
-	$fdata["ownerTable"] = "horarios";
-	$fdata["Label"] = GetFieldLabel("profesor_curso_view","IdHorario");
-	$fdata["FieldType"] = 3;
-
-	
-		$fdata["AutoInc"] = true;
-
-	
-			
-
-		$fdata["strField"] = "IdHorario";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "c.IdHorario";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-		$edata["IsRequired"] = true;
-
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdataprofesor_curso_view["IdHorario"] = $fdata;
-		$tdataprofesor_curso_view[".searchableFields"][] = "IdHorario";
-//	numDia
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 11;
-	$fdata["strName"] = "numDia";
-	$fdata["GoodName"] = "numDia";
-	$fdata["ownerTable"] = "horarios";
-	$fdata["Label"] = GetFieldLabel("profesor_curso_view","numDia");
-	$fdata["FieldType"] = 3;
-
-	
-	
-	
-			
-
-		$fdata["strField"] = "numDia";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "c.numDia";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-		$edata["IsRequired"] = true;
-
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdataprofesor_curso_view["numDia"] = $fdata;
-		$tdataprofesor_curso_view[".searchableFields"][] = "numDia";
-//	txtDia
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 12;
-	$fdata["strName"] = "txtDia";
-	$fdata["GoodName"] = "txtDia";
-	$fdata["ownerTable"] = "horarios";
-	$fdata["Label"] = GetFieldLabel("profesor_curso_view","txtDia");
-	$fdata["FieldType"] = 200;
-
-	
-	
-	
-			
-
-		$fdata["strField"] = "txtDia";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "c.txtDia";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-	
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-	//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdataprofesor_curso_view["txtDia"] = $fdata;
-		$tdataprofesor_curso_view[".searchableFields"][] = "txtDia";
-//	HorIni
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 13;
-	$fdata["strName"] = "HorIni";
-	$fdata["GoodName"] = "HorIni";
-	$fdata["ownerTable"] = "horarios";
-	$fdata["Label"] = GetFieldLabel("profesor_curso_view","HorIni");
-	$fdata["FieldType"] = 134;
-
-	
-	
-	
-			
-
-		$fdata["strField"] = "HorIni";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "c.HorIni";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "Time");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Time");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-		$edata["IsRequired"] = true;
-
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-	
-		$edata["EditParams"] = "";
-		
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
-	
-	//	End validation
-
-	
-			
-				$hours = 24;
-	$edata["FormatTimeAttrs"] = array("useTimePicker" => 0,
-									  "hours" => $hours,
-									  "minutes" => 1,
-									  "showSeconds" => 0);
-
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdataprofesor_curso_view["HorIni"] = $fdata;
-		$tdataprofesor_curso_view[".searchableFields"][] = "HorIni";
-//	HorFin
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 14;
-	$fdata["strName"] = "HorFin";
-	$fdata["GoodName"] = "HorFin";
-	$fdata["ownerTable"] = "horarios";
-	$fdata["Label"] = GetFieldLabel("profesor_curso_view","HorFin");
-	$fdata["FieldType"] = 134;
-
-	
-	
-	
-			
-
-		$fdata["strField"] = "HorFin";
-
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "c.HorFin";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "Time");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Time");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-		$edata["IsRequired"] = true;
-
-	
-	
-	
-			$edata["acceptFileTypes"] = ".+$";
-		$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-	
-		$edata["EditParams"] = "";
-		
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
-	
-	//	End validation
-
-	
-			
-				$hours = 24;
-	$edata["FormatTimeAttrs"] = array("useTimePicker" => 0,
-									  "hours" => $hours,
-									  "minutes" => 1,
-									  "showSeconds" => 0);
-
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Equals", "More than", "Less than", "Between", EMPTY_SEARCH, NOT_EMPTY );
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdataprofesor_curso_view["HorFin"] = $fdata;
-		$tdataprofesor_curso_view[".searchableFields"][] = "HorFin";
 
 
 $tables_data["profesor_curso_view"]=&$tdataprofesor_curso_view;
@@ -2228,8 +1659,8 @@ function createSqlQuery_profesor_curso_view()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "pc.idCursoDicta,      pc.idProfesor,      CONCAT(pc.NomProfesor, '', pc.ApellidosProfesor) AS Docente,      pc.idCurso,      pc.NombreCurso,      pc.Seccion,      pc.NRC,      pc.Academia,      pc.idCicloEscolar,      c.IdHorario, c.numDia, c.txtDia, c.HorIni, c.HorFin";
-$proto0["m_strFrom"] = "FROM      matriculas.profesor_curso_view AS pc          LEFT JOIN      matriculas.horarios AS c ON c.idCursoDicta = pc.idCursoDicta          AND c.idProfesor = pc.idProfesor          AND c.idCurso = pc.idCurso";
+$proto0["m_strFieldList"] = "idCursoDicta,  	idProfesor,  	NomProfesor,  	ApellidosProfesor,  	idCurso,  	NombreCurso,  	Seccion,  	NRC,  	Academia,  	idCicloEscolar";
+$proto0["m_strFrom"] = "FROM profesor_curso_view";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
 	
@@ -2271,11 +1702,11 @@ $proto0["m_fieldlist"] = array();
 						$proto6=array();
 			$obj = new SQLField(array(
 	"m_strName" => "idCursoDicta",
-	"m_strTable" => "pc",
+	"m_strTable" => "profesor_curso_view",
 	"m_srcTableName" => "profesor_curso_view"
 ));
 
-$proto6["m_sql"] = "pc.idCursoDicta";
+$proto6["m_sql"] = "idCursoDicta";
 $proto6["m_srcTableName"] = "profesor_curso_view";
 $proto6["m_expr"]=$obj;
 $proto6["m_alias"] = "";
@@ -2285,11 +1716,11 @@ $proto0["m_fieldlist"][]=$obj;
 						$proto8=array();
 			$obj = new SQLField(array(
 	"m_strName" => "idProfesor",
-	"m_strTable" => "pc",
+	"m_strTable" => "profesor_curso_view",
 	"m_srcTableName" => "profesor_curso_view"
 ));
 
-$proto8["m_sql"] = "pc.idProfesor";
+$proto8["m_sql"] = "idProfesor";
 $proto8["m_srcTableName"] = "profesor_curso_view";
 $proto8["m_expr"]=$obj;
 $proto8["m_alias"] = "";
@@ -2297,321 +1728,157 @@ $obj = new SQLFieldListItem($proto8);
 
 $proto0["m_fieldlist"][]=$obj;
 						$proto10=array();
-			$proto11=array();
-$proto11["m_functiontype"] = "SQLF_CUSTOM";
-$proto11["m_arguments"] = array();
-						$obj = new SQLNonParsed(array(
-	"m_sql" => "pc.NomProfesor"
+			$obj = new SQLField(array(
+	"m_strName" => "NomProfesor",
+	"m_strTable" => "profesor_curso_view",
+	"m_srcTableName" => "profesor_curso_view"
 ));
 
-$proto11["m_arguments"][]=$obj;
-						$obj = new SQLNonParsed(array(
-	"m_sql" => "''"
-));
-
-$proto11["m_arguments"][]=$obj;
-						$obj = new SQLNonParsed(array(
-	"m_sql" => "pc.ApellidosProfesor"
-));
-
-$proto11["m_arguments"][]=$obj;
-$proto11["m_strFunctionName"] = "CONCAT";
-$obj = new SQLFunctionCall($proto11);
-
-$proto10["m_sql"] = "CONCAT(pc.NomProfesor, '', pc.ApellidosProfesor)";
+$proto10["m_sql"] = "NomProfesor";
 $proto10["m_srcTableName"] = "profesor_curso_view";
 $proto10["m_expr"]=$obj;
-$proto10["m_alias"] = "Docente";
+$proto10["m_alias"] = "";
 $obj = new SQLFieldListItem($proto10);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto15=array();
+						$proto12=array();
+			$obj = new SQLField(array(
+	"m_strName" => "ApellidosProfesor",
+	"m_strTable" => "profesor_curso_view",
+	"m_srcTableName" => "profesor_curso_view"
+));
+
+$proto12["m_sql"] = "ApellidosProfesor";
+$proto12["m_srcTableName"] = "profesor_curso_view";
+$proto12["m_expr"]=$obj;
+$proto12["m_alias"] = "";
+$obj = new SQLFieldListItem($proto12);
+
+$proto0["m_fieldlist"][]=$obj;
+						$proto14=array();
 			$obj = new SQLField(array(
 	"m_strName" => "idCurso",
-	"m_strTable" => "pc",
+	"m_strTable" => "profesor_curso_view",
 	"m_srcTableName" => "profesor_curso_view"
 ));
 
-$proto15["m_sql"] = "pc.idCurso";
-$proto15["m_srcTableName"] = "profesor_curso_view";
-$proto15["m_expr"]=$obj;
-$proto15["m_alias"] = "";
-$obj = new SQLFieldListItem($proto15);
+$proto14["m_sql"] = "idCurso";
+$proto14["m_srcTableName"] = "profesor_curso_view";
+$proto14["m_expr"]=$obj;
+$proto14["m_alias"] = "";
+$obj = new SQLFieldListItem($proto14);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto17=array();
+						$proto16=array();
 			$obj = new SQLField(array(
 	"m_strName" => "NombreCurso",
-	"m_strTable" => "pc",
+	"m_strTable" => "profesor_curso_view",
 	"m_srcTableName" => "profesor_curso_view"
 ));
 
-$proto17["m_sql"] = "pc.NombreCurso";
-$proto17["m_srcTableName"] = "profesor_curso_view";
-$proto17["m_expr"]=$obj;
-$proto17["m_alias"] = "";
-$obj = new SQLFieldListItem($proto17);
+$proto16["m_sql"] = "NombreCurso";
+$proto16["m_srcTableName"] = "profesor_curso_view";
+$proto16["m_expr"]=$obj;
+$proto16["m_alias"] = "";
+$obj = new SQLFieldListItem($proto16);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto19=array();
+						$proto18=array();
 			$obj = new SQLField(array(
 	"m_strName" => "Seccion",
-	"m_strTable" => "pc",
+	"m_strTable" => "profesor_curso_view",
 	"m_srcTableName" => "profesor_curso_view"
 ));
 
-$proto19["m_sql"] = "pc.Seccion";
-$proto19["m_srcTableName"] = "profesor_curso_view";
-$proto19["m_expr"]=$obj;
-$proto19["m_alias"] = "";
-$obj = new SQLFieldListItem($proto19);
+$proto18["m_sql"] = "Seccion";
+$proto18["m_srcTableName"] = "profesor_curso_view";
+$proto18["m_expr"]=$obj;
+$proto18["m_alias"] = "";
+$obj = new SQLFieldListItem($proto18);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto21=array();
+						$proto20=array();
 			$obj = new SQLField(array(
 	"m_strName" => "NRC",
-	"m_strTable" => "pc",
+	"m_strTable" => "profesor_curso_view",
 	"m_srcTableName" => "profesor_curso_view"
 ));
 
-$proto21["m_sql"] = "pc.NRC";
-$proto21["m_srcTableName"] = "profesor_curso_view";
-$proto21["m_expr"]=$obj;
-$proto21["m_alias"] = "";
-$obj = new SQLFieldListItem($proto21);
+$proto20["m_sql"] = "NRC";
+$proto20["m_srcTableName"] = "profesor_curso_view";
+$proto20["m_expr"]=$obj;
+$proto20["m_alias"] = "";
+$obj = new SQLFieldListItem($proto20);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto23=array();
+						$proto22=array();
 			$obj = new SQLField(array(
 	"m_strName" => "Academia",
-	"m_strTable" => "pc",
+	"m_strTable" => "profesor_curso_view",
 	"m_srcTableName" => "profesor_curso_view"
 ));
 
-$proto23["m_sql"] = "pc.Academia";
-$proto23["m_srcTableName"] = "profesor_curso_view";
-$proto23["m_expr"]=$obj;
-$proto23["m_alias"] = "";
-$obj = new SQLFieldListItem($proto23);
+$proto22["m_sql"] = "Academia";
+$proto22["m_srcTableName"] = "profesor_curso_view";
+$proto22["m_expr"]=$obj;
+$proto22["m_alias"] = "";
+$obj = new SQLFieldListItem($proto22);
 
 $proto0["m_fieldlist"][]=$obj;
-						$proto25=array();
+						$proto24=array();
 			$obj = new SQLField(array(
 	"m_strName" => "idCicloEscolar",
-	"m_strTable" => "pc",
+	"m_strTable" => "profesor_curso_view",
 	"m_srcTableName" => "profesor_curso_view"
 ));
 
-$proto25["m_sql"] = "pc.idCicloEscolar";
-$proto25["m_srcTableName"] = "profesor_curso_view";
-$proto25["m_expr"]=$obj;
-$proto25["m_alias"] = "";
-$obj = new SQLFieldListItem($proto25);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto27=array();
-			$obj = new SQLField(array(
-	"m_strName" => "IdHorario",
-	"m_strTable" => "c",
-	"m_srcTableName" => "profesor_curso_view"
-));
-
-$proto27["m_sql"] = "c.IdHorario";
-$proto27["m_srcTableName"] = "profesor_curso_view";
-$proto27["m_expr"]=$obj;
-$proto27["m_alias"] = "";
-$obj = new SQLFieldListItem($proto27);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto29=array();
-			$obj = new SQLField(array(
-	"m_strName" => "numDia",
-	"m_strTable" => "c",
-	"m_srcTableName" => "profesor_curso_view"
-));
-
-$proto29["m_sql"] = "c.numDia";
-$proto29["m_srcTableName"] = "profesor_curso_view";
-$proto29["m_expr"]=$obj;
-$proto29["m_alias"] = "";
-$obj = new SQLFieldListItem($proto29);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto31=array();
-			$obj = new SQLField(array(
-	"m_strName" => "txtDia",
-	"m_strTable" => "c",
-	"m_srcTableName" => "profesor_curso_view"
-));
-
-$proto31["m_sql"] = "c.txtDia";
-$proto31["m_srcTableName"] = "profesor_curso_view";
-$proto31["m_expr"]=$obj;
-$proto31["m_alias"] = "";
-$obj = new SQLFieldListItem($proto31);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto33=array();
-			$obj = new SQLField(array(
-	"m_strName" => "HorIni",
-	"m_strTable" => "c",
-	"m_srcTableName" => "profesor_curso_view"
-));
-
-$proto33["m_sql"] = "c.HorIni";
-$proto33["m_srcTableName"] = "profesor_curso_view";
-$proto33["m_expr"]=$obj;
-$proto33["m_alias"] = "";
-$obj = new SQLFieldListItem($proto33);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto35=array();
-			$obj = new SQLField(array(
-	"m_strName" => "HorFin",
-	"m_strTable" => "c",
-	"m_srcTableName" => "profesor_curso_view"
-));
-
-$proto35["m_sql"] = "c.HorFin";
-$proto35["m_srcTableName"] = "profesor_curso_view";
-$proto35["m_expr"]=$obj;
-$proto35["m_alias"] = "";
-$obj = new SQLFieldListItem($proto35);
+$proto24["m_sql"] = "idCicloEscolar";
+$proto24["m_srcTableName"] = "profesor_curso_view";
+$proto24["m_expr"]=$obj;
+$proto24["m_alias"] = "";
+$obj = new SQLFieldListItem($proto24);
 
 $proto0["m_fieldlist"][]=$obj;
 $proto0["m_fromlist"] = array();
-												$proto37=array();
-$proto37["m_link"] = "SQLL_MAIN";
-			$proto38=array();
-$proto38["m_strName"] = "profesor_curso_view";
-$proto38["m_srcTableName"] = "profesor_curso_view";
-$proto38["m_columns"] = array();
-$proto38["m_columns"][] = "idCursoDicta";
-$proto38["m_columns"][] = "idProfesor";
-$proto38["m_columns"][] = "NomProfesor";
-$proto38["m_columns"][] = "ApellidosProfesor";
-$proto38["m_columns"][] = "idCurso";
-$proto38["m_columns"][] = "NombreCurso";
-$proto38["m_columns"][] = "Seccion";
-$proto38["m_columns"][] = "NRC";
-$proto38["m_columns"][] = "Academia";
-$proto38["m_columns"][] = "idCicloEscolar";
-$obj = new SQLTable($proto38);
+												$proto26=array();
+$proto26["m_link"] = "SQLL_MAIN";
+			$proto27=array();
+$proto27["m_strName"] = "profesor_curso_view";
+$proto27["m_srcTableName"] = "profesor_curso_view";
+$proto27["m_columns"] = array();
+$proto27["m_columns"][] = "idCursoDicta";
+$proto27["m_columns"][] = "idProfesor";
+$proto27["m_columns"][] = "NomProfesor";
+$proto27["m_columns"][] = "ApellidosProfesor";
+$proto27["m_columns"][] = "idCurso";
+$proto27["m_columns"][] = "NombreCurso";
+$proto27["m_columns"][] = "Seccion";
+$proto27["m_columns"][] = "NRC";
+$proto27["m_columns"][] = "Academia";
+$proto27["m_columns"][] = "idCicloEscolar";
+$obj = new SQLTable($proto27);
 
-$proto37["m_table"] = $obj;
-$proto37["m_sql"] = "matriculas.profesor_curso_view AS pc";
-$proto37["m_alias"] = "pc";
-$proto37["m_srcTableName"] = "profesor_curso_view";
-$proto39=array();
-$proto39["m_sql"] = "";
-$proto39["m_uniontype"] = "SQLL_UNKNOWN";
+$proto26["m_table"] = $obj;
+$proto26["m_sql"] = "profesor_curso_view";
+$proto26["m_alias"] = "";
+$proto26["m_srcTableName"] = "profesor_curso_view";
+$proto28=array();
+$proto28["m_sql"] = "";
+$proto28["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto39["m_column"]=$obj;
-$proto39["m_contained"] = array();
-$proto39["m_strCase"] = "";
-$proto39["m_havingmode"] = false;
-$proto39["m_inBrackets"] = false;
-$proto39["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto39);
+$proto28["m_column"]=$obj;
+$proto28["m_contained"] = array();
+$proto28["m_strCase"] = "";
+$proto28["m_havingmode"] = false;
+$proto28["m_inBrackets"] = false;
+$proto28["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto28);
 
-$proto37["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto37);
-
-$proto0["m_fromlist"][]=$obj;
-												$proto41=array();
-$proto41["m_link"] = "SQLL_LEFTJOIN";
-			$proto42=array();
-$proto42["m_strName"] = "horarios";
-$proto42["m_srcTableName"] = "profesor_curso_view";
-$proto42["m_columns"] = array();
-$proto42["m_columns"][] = "IdHorario";
-$proto42["m_columns"][] = "idCursoDicta";
-$proto42["m_columns"][] = "idProfesor";
-$proto42["m_columns"][] = "idCurso";
-$proto42["m_columns"][] = "numDia";
-$proto42["m_columns"][] = "txtDia";
-$proto42["m_columns"][] = "HorIni";
-$proto42["m_columns"][] = "HorFin";
-$obj = new SQLTable($proto42);
-
-$proto41["m_table"] = $obj;
-$proto41["m_sql"] = "LEFT JOIN      matriculas.horarios AS c ON c.idCursoDicta = pc.idCursoDicta          AND c.idProfesor = pc.idProfesor          AND c.idCurso = pc.idCurso";
-$proto41["m_alias"] = "c";
-$proto41["m_srcTableName"] = "profesor_curso_view";
-$proto43=array();
-$proto43["m_sql"] = "c.idCursoDicta = pc.idCursoDicta          AND c.idProfesor = pc.idProfesor          AND c.idCurso = pc.idCurso";
-$proto43["m_uniontype"] = "SQLL_AND";
-	$obj = new SQLNonParsed(array(
-	"m_sql" => "c.idCursoDicta = pc.idCursoDicta          AND c.idProfesor = pc.idProfesor          AND c.idCurso = pc.idCurso"
-));
-
-$proto43["m_column"]=$obj;
-$proto43["m_contained"] = array();
-						$proto45=array();
-$proto45["m_sql"] = "c.idCursoDicta = pc.idCursoDicta";
-$proto45["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "idCursoDicta",
-	"m_strTable" => "c",
-	"m_srcTableName" => "profesor_curso_view"
-));
-
-$proto45["m_column"]=$obj;
-$proto45["m_contained"] = array();
-$proto45["m_strCase"] = "= pc.idCursoDicta";
-$proto45["m_havingmode"] = false;
-$proto45["m_inBrackets"] = false;
-$proto45["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto45);
-
-			$proto43["m_contained"][]=$obj;
-						$proto47=array();
-$proto47["m_sql"] = "c.idProfesor = pc.idProfesor";
-$proto47["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "idProfesor",
-	"m_strTable" => "c",
-	"m_srcTableName" => "profesor_curso_view"
-));
-
-$proto47["m_column"]=$obj;
-$proto47["m_contained"] = array();
-$proto47["m_strCase"] = "= pc.idProfesor";
-$proto47["m_havingmode"] = false;
-$proto47["m_inBrackets"] = false;
-$proto47["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto47);
-
-			$proto43["m_contained"][]=$obj;
-						$proto49=array();
-$proto49["m_sql"] = "c.idCurso = pc.idCurso";
-$proto49["m_uniontype"] = "SQLL_UNKNOWN";
-						$obj = new SQLField(array(
-	"m_strName" => "idCurso",
-	"m_strTable" => "c",
-	"m_srcTableName" => "profesor_curso_view"
-));
-
-$proto49["m_column"]=$obj;
-$proto49["m_contained"] = array();
-$proto49["m_strCase"] = "= pc.idCurso";
-$proto49["m_havingmode"] = false;
-$proto49["m_inBrackets"] = false;
-$proto49["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto49);
-
-			$proto43["m_contained"][]=$obj;
-$proto43["m_strCase"] = "";
-$proto43["m_havingmode"] = false;
-$proto43["m_inBrackets"] = false;
-$proto43["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto43);
-
-$proto41["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto41);
+$proto26["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto26);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -2627,7 +1894,7 @@ $queryData_profesor_curso_view = createSqlQuery_profesor_curso_view();
 	
 		;
 
-														
+										
 
 $tdataprofesor_curso_view[".sqlquery"] = $queryData_profesor_curso_view;
 

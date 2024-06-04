@@ -82,41 +82,6 @@ function InitLookupLinks()
 			$lookupTableLinks["alumno"]["matriculacab.idAlumno"] = array();
 		}
 		$lookupTableLinks["alumno"]["matriculacab.idAlumno"]["edit"] = array("table" => "matriculacab", "field" => "idAlumno", "page" => "edit");
-		if( !isset( $lookupTableLinks["matriculacab"] ) ) {
-			$lookupTableLinks["matriculacab"] = array();
-		}
-		if( !isset( $lookupTableLinks["matriculacab"]["alumno_profesor_curso.IdmatriculaCab"] )) {
-			$lookupTableLinks["matriculacab"]["alumno_profesor_curso.IdmatriculaCab"] = array();
-		}
-		$lookupTableLinks["matriculacab"]["alumno_profesor_curso.IdmatriculaCab"]["edit"] = array("table" => "alumno_profesor_curso", "field" => "IdmatriculaCab", "page" => "edit");
-		if( !isset( $lookupTableLinks["alumno"] ) ) {
-			$lookupTableLinks["alumno"] = array();
-		}
-		if( !isset( $lookupTableLinks["alumno"]["alumno_profesor_curso.idAlumno"] )) {
-			$lookupTableLinks["alumno"]["alumno_profesor_curso.idAlumno"] = array();
-		}
-		$lookupTableLinks["alumno"]["alumno_profesor_curso.idAlumno"]["edit"] = array("table" => "alumno_profesor_curso", "field" => "idAlumno", "page" => "edit");
-		if( !isset( $lookupTableLinks["profesor_curso_view"] ) ) {
-			$lookupTableLinks["profesor_curso_view"] = array();
-		}
-		if( !isset( $lookupTableLinks["profesor_curso_view"]["alumno_profesor_curso.idCursoDicta"] )) {
-			$lookupTableLinks["profesor_curso_view"]["alumno_profesor_curso.idCursoDicta"] = array();
-		}
-		$lookupTableLinks["profesor_curso_view"]["alumno_profesor_curso.idCursoDicta"]["edit"] = array("table" => "alumno_profesor_curso", "field" => "idCursoDicta", "page" => "edit");
-		if( !isset( $lookupTableLinks["curso"] ) ) {
-			$lookupTableLinks["curso"] = array();
-		}
-		if( !isset( $lookupTableLinks["curso"]["alumno_profesor_curso.idCurso"] )) {
-			$lookupTableLinks["curso"]["alumno_profesor_curso.idCurso"] = array();
-		}
-		$lookupTableLinks["curso"]["alumno_profesor_curso.idCurso"]["edit"] = array("table" => "alumno_profesor_curso", "field" => "idCurso", "page" => "edit");
-		if( !isset( $lookupTableLinks["profesor"] ) ) {
-			$lookupTableLinks["profesor"] = array();
-		}
-		if( !isset( $lookupTableLinks["profesor"]["alumno_profesor_curso.idProfesor"] )) {
-			$lookupTableLinks["profesor"]["alumno_profesor_curso.idProfesor"] = array();
-		}
-		$lookupTableLinks["profesor"]["alumno_profesor_curso.idProfesor"]["edit"] = array("table" => "alumno_profesor_curso", "field" => "idProfesor", "page" => "edit");
 }
 
 ?>

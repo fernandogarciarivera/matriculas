@@ -215,9 +215,9 @@ function checkTableName($shortTName, $type=false)
 		return true;
 	if ("matriculacab" == $shortTName && ($type===false || ($type!==false && $type == 0)))
 		return true;
-	if ("alumno_profesor_curso" == $shortTName && ($type===false || ($type!==false && $type == 0)))
-		return true;
 	if ("profesor_curso_view" == $shortTName && ($type===false || ($type!==false && $type == 0)))
+		return true;
+	if ("mimatricula_curso_horario_view" == $shortTName && ($type===false || ($type!==false && $type == 0)))
 		return true;
 	return false;
 }
@@ -325,21 +325,21 @@ function GetTablesList($pdfMode = false)
 	}
 	$tableAvailable = true;
 	if( $checkPermissions ) {
-		$strPerm = GetUserPermissions("alumno_profesor_curso");
-		$tableAvailable = ( strpos($strPerm, "P") !== false
-			|| $pdfMode && strpos($strPerm, "S") !== false );
-	}
-	if( $tableAvailable ) {
-		$arr[]="alumno_profesor_curso";
-	}
-	$tableAvailable = true;
-	if( $checkPermissions ) {
 		$strPerm = GetUserPermissions("profesor_curso_view");
 		$tableAvailable = ( strpos($strPerm, "P") !== false
 			|| $pdfMode && strpos($strPerm, "S") !== false );
 	}
 	if( $tableAvailable ) {
 		$arr[]="profesor_curso_view";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("mimatricula_curso_horario_view");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="mimatricula_curso_horario_view";
 	}
 	return $arr;
 }
@@ -356,8 +356,8 @@ function GetTablesListWithoutSecurity()
 	$arr[]="profesor_curso";
 	$arr[]="horarios";
 	$arr[]="matriculacab";
-	$arr[]="alumno_profesor_curso";
 	$arr[]="profesor_curso_view";
+	$arr[]="mimatricula_curso_horario_view";
 	return $arr;
 }
 
@@ -1149,13 +1149,13 @@ function GetUserPermissionsStatic( $table )
 		// grant all by default
 		return "ADESPI".$extraPerm;
 	}
-	if( $table=="alumno_profesor_curso" )
+	if( $table=="profesor_curso_view" )
 	{
 //	default permissions
 		// grant all by default
 		return "ADESPI".$extraPerm;
 	}
-	if( $table=="profesor_curso_view" )
+	if( $table=="mimatricula_curso_horario_view" )
 	{
 //	default permissions
 		// grant all by default
