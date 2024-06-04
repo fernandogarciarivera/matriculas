@@ -96,16 +96,16 @@ $pages = $tdatahorarios[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdatahorarios[".edit"] = true;
-	$tdatahorarios[".afterEditAction"] = 1;
+	$tdatahorarios[".afterEditAction"] = 0;
 	$tdatahorarios[".closePopupAfterEdit"] = 1;
-	$tdatahorarios[".afterEditActionDetTable"] = "";
+	$tdatahorarios[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdatahorarios[".add"] = true;
-$tdatahorarios[".afterAddAction"] = 1;
+$tdatahorarios[".afterAddAction"] = 0;
 $tdatahorarios[".closePopupAfterAdd"] = 1;
-$tdatahorarios[".afterAddActionDetTable"] = "";
+$tdatahorarios[".afterAddActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_LIST] ) {

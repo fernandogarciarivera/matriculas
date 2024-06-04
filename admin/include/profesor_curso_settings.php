@@ -87,16 +87,16 @@ $pages = $tdataprofesor_curso[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataprofesor_curso[".edit"] = true;
-	$tdataprofesor_curso[".afterEditAction"] = 1;
+	$tdataprofesor_curso[".afterEditAction"] = 0;
 	$tdataprofesor_curso[".closePopupAfterEdit"] = 1;
-	$tdataprofesor_curso[".afterEditActionDetTable"] = "";
+	$tdataprofesor_curso[".afterEditActionDetTable"] = "horarios";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdataprofesor_curso[".add"] = true;
-$tdataprofesor_curso[".afterAddAction"] = 1;
+$tdataprofesor_curso[".afterAddAction"] = 0;
 $tdataprofesor_curso[".closePopupAfterAdd"] = 1;
-$tdataprofesor_curso[".afterAddActionDetTable"] = "";
+$tdataprofesor_curso[".afterAddActionDetTable"] = "horarios";
 }
 
 if( $pages[PAGE_LIST] ) {

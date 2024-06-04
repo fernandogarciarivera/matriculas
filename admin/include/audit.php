@@ -330,6 +330,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="profesor_curso_view")
+		{
+			return false;
+		}
 	}
 	
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -663,6 +667,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="alumno_profesor_curso")
+		{
+			return false;
+		}
+		if($table=="profesor_curso_view")
 		{
 			return false;
 		}

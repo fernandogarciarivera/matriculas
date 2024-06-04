@@ -3070,6 +3070,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "matriculacab" ] = "matriculacab";
 	$projectEntities[ "alumno_profesor_curso" ] = array( "url" => "alumno_profesor_curso", "type" => 0 );
 	$projectEntitiesReverse[ "alumno_profesor_curso" ] = "alumno_profesor_curso";
+	$projectEntities[ "profesor_curso_view" ] = array( "url" => "profesor_curso_view", "type" => 0 );
+	$projectEntitiesReverse[ "profesor_curso_view" ] = "profesor_curso_view";
 }
 
 function findTable( $table ) {

@@ -102,16 +102,16 @@ $pages = $tdataalumno[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataalumno[".edit"] = true;
-	$tdataalumno[".afterEditAction"] = 1;
+	$tdataalumno[".afterEditAction"] = 0;
 	$tdataalumno[".closePopupAfterEdit"] = 1;
-	$tdataalumno[".afterEditActionDetTable"] = "";
+	$tdataalumno[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdataalumno[".add"] = true;
-$tdataalumno[".afterAddAction"] = 1;
+$tdataalumno[".afterAddAction"] = 0;
 $tdataalumno[".closePopupAfterAdd"] = 1;
-$tdataalumno[".afterAddActionDetTable"] = "";
+$tdataalumno[".afterAddActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_LIST] ) {

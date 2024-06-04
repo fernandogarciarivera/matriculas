@@ -102,16 +102,16 @@ $pages = $tdatacurso[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdatacurso[".edit"] = true;
-	$tdatacurso[".afterEditAction"] = 1;
+	$tdatacurso[".afterEditAction"] = 0;
 	$tdatacurso[".closePopupAfterEdit"] = 1;
-	$tdatacurso[".afterEditActionDetTable"] = "";
+	$tdatacurso[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdatacurso[".add"] = true;
-$tdatacurso[".afterAddAction"] = 1;
+$tdatacurso[".afterAddAction"] = 0;
 $tdatacurso[".closePopupAfterAdd"] = 1;
-$tdatacurso[".afterAddActionDetTable"] = "";
+$tdatacurso[".afterAddActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_LIST] ) {

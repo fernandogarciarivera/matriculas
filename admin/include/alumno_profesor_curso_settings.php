@@ -96,16 +96,16 @@ $pages = $tdataalumno_profesor_curso[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdataalumno_profesor_curso[".edit"] = true;
-	$tdataalumno_profesor_curso[".afterEditAction"] = 1;
+	$tdataalumno_profesor_curso[".afterEditAction"] = 0;
 	$tdataalumno_profesor_curso[".closePopupAfterEdit"] = 1;
-	$tdataalumno_profesor_curso[".afterEditActionDetTable"] = "";
+	$tdataalumno_profesor_curso[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdataalumno_profesor_curso[".add"] = true;
-$tdataalumno_profesor_curso[".afterAddAction"] = 1;
+$tdataalumno_profesor_curso[".afterAddAction"] = 0;
 $tdataalumno_profesor_curso[".closePopupAfterAdd"] = 1;
-$tdataalumno_profesor_curso[".afterAddActionDetTable"] = "";
+$tdataalumno_profesor_curso[".afterAddActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_LIST] ) {
@@ -216,6 +216,17 @@ $tdataalumno_profesor_curso[".sqlFrom"] = "FROM alumno_profesor_curso";
 $tdataalumno_profesor_curso[".sqlWhereExpr"] = "";
 $tdataalumno_profesor_curso[".sqlTail"] = "";
 
+//fill array of tabs for list page
+$arrGridTabs = array();
+$arrGridTabs[] = array(
+	'tabId' => "",
+	'name' => "All data",
+	'nameType' => 'Text',
+	'where' => "",
+	'showRowCount' => 0,
+	'hideEmpty' => 0,
+);
+$tdataalumno_profesor_curso[".arrGridTabs"] = $arrGridTabs;
 
 
 
@@ -787,10 +798,10 @@ $tdataalumno_profesor_curso[".hideMobileList"] = array();
 
 // Begin Lookup settings
 				$edata["LookupType"] = 2;
-	$edata["LookupTable"] = "profesor_curso";
+	$edata["LookupTable"] = "profesor_curso_view";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 2;
 
 	
 		
@@ -810,8 +821,7 @@ $tdataalumno_profesor_curso[".hideMobileList"] = array();
 
 	
 	
-		$edata["SelectSize"] = 1;
-
+	
 // End Lookup Settings
 
 

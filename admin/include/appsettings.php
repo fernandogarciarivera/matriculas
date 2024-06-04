@@ -523,10 +523,10 @@ $ajaxSearchStartsWith = true;
 
 
 $globalSettings["LandingPageType"] = 1;
-$globalSettings["LandingTable"] = "alumno";
-$globalSettings["LandingPage"] = "list";
-$globalSettings["LandingURL"] = "alumno_list.php?page=list";
-$globalSettings["LandingPageId"] = "list";
+$globalSettings["LandingTable"] = "";
+$globalSettings["LandingPage"] = "menu";
+$globalSettings["LandingURL"] = "menu.php?page=menu";
+$globalSettings["LandingPageId"] = "menu";
 
 $globalSettings["ProjectLogo"] = array();
 $globalSettings["ProjectLogo"]["Spanish"] = "matriculasAdmin";
@@ -622,9 +622,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "62_1717434957";
+$projectBuildKey = "86_1717466373";
 $wizardBuildKey = "33793";
-$projectBuildNumber = "62";
+$projectBuildNumber = "86";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -652,6 +652,7 @@ $tableCaptions["Spanish"]["profesor_curso"] = "Profesor Curso";
 $tableCaptions["Spanish"]["horarios"] = "Horarios";
 $tableCaptions["Spanish"]["matriculacab"] = "Matriculacab";
 $tableCaptions["Spanish"]["alumno_profesor_curso"] = "Cursos Matriculados";
+$tableCaptions["Spanish"]["profesor_curso_view"] = "Profesor Curso View";
 
 
 $globalEvents = new class_GlobalEvents;

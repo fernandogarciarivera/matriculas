@@ -409,6 +409,7 @@ class DB
 			$dalTables[$conn->connId][] = array("name" => "matriculacab", "varname" => "matriculas_at_127_0_0_1__matriculacab", "altvarname" => "matriculacab", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 			$dalTables[$conn->connId][] = array("name" => "profesor", "varname" => "matriculas_at_127_0_0_1__profesor", "altvarname" => "profesor", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 			$dalTables[$conn->connId][] = array("name" => "profesor_curso", "varname" => "matriculas_at_127_0_0_1__profesor_curso", "altvarname" => "profesor_curso", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
+			$dalTables[$conn->connId][] = array("name" => "profesor_curso_view", "varname" => "matriculas_at_127_0_0_1__profesor_curso_view", "altvarname" => "profesor_curso_view", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 		}
 	}
 

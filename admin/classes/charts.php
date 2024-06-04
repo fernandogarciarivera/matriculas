@@ -504,6 +504,8 @@ class Chart
 			return true;
 		if("alumno_profesor_curso" == $this->chrt_array['tables'][0])
 			return true;
+		if("profesor_curso_view" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 	

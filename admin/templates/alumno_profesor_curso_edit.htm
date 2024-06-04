@@ -105,6 +105,29 @@
 >
 	<div edit-form-cell class="clearfix">
 				
+{BEGIN idCursoDicta_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_idCursoDicta}  r-vertical-field" 
+	data-fieldname="idCursoDicta" 
+	data-signal-error-for="idCursoDicta{$id}" 
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="idCursoDicta" >
+
+
+	<label class="r-edit-label control-label" for="{$labelfor_idCursoDicta}">
+		{BEGIN idCursoDicta_label}{$label alumno_profesor_curso idCursoDicta }{END idCursoDicta_label}
+	</label>
+	<div class="r-edit-field">
+		{$idCursoDicta_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="idCursoDicta">
+		<div class="text-muted" >
+				</div>
+	</div>
+</div>
+
+
+{END idCursoDicta_fieldblock}
+											
 {BEGIN idCurso_fieldblock}
 
 

@@ -84,16 +84,16 @@ $pages = $tdatamatriculacab[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdatamatriculacab[".edit"] = true;
-	$tdatamatriculacab[".afterEditAction"] = 1;
+	$tdatamatriculacab[".afterEditAction"] = 0;
 	$tdatamatriculacab[".closePopupAfterEdit"] = 1;
-	$tdatamatriculacab[".afterEditActionDetTable"] = "";
+	$tdatamatriculacab[".afterEditActionDetTable"] = "alumno_profesor_curso";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdatamatriculacab[".add"] = true;
-$tdatamatriculacab[".afterAddAction"] = 1;
+$tdatamatriculacab[".afterAddAction"] = 0;
 $tdatamatriculacab[".closePopupAfterAdd"] = 1;
-$tdatamatriculacab[".afterAddActionDetTable"] = "";
+$tdatamatriculacab[".afterAddActionDetTable"] = "alumno_profesor_curso";
 }
 
 if( $pages[PAGE_LIST] ) {

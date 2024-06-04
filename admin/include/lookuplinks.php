@@ -96,13 +96,13 @@ function InitLookupLinks()
 			$lookupTableLinks["alumno"]["alumno_profesor_curso.idAlumno"] = array();
 		}
 		$lookupTableLinks["alumno"]["alumno_profesor_curso.idAlumno"]["edit"] = array("table" => "alumno_profesor_curso", "field" => "idAlumno", "page" => "edit");
-		if( !isset( $lookupTableLinks["profesor_curso"] ) ) {
-			$lookupTableLinks["profesor_curso"] = array();
+		if( !isset( $lookupTableLinks["profesor_curso_view"] ) ) {
+			$lookupTableLinks["profesor_curso_view"] = array();
 		}
-		if( !isset( $lookupTableLinks["profesor_curso"]["alumno_profesor_curso.idCursoDicta"] )) {
-			$lookupTableLinks["profesor_curso"]["alumno_profesor_curso.idCursoDicta"] = array();
+		if( !isset( $lookupTableLinks["profesor_curso_view"]["alumno_profesor_curso.idCursoDicta"] )) {
+			$lookupTableLinks["profesor_curso_view"]["alumno_profesor_curso.idCursoDicta"] = array();
 		}
-		$lookupTableLinks["profesor_curso"]["alumno_profesor_curso.idCursoDicta"]["edit"] = array("table" => "alumno_profesor_curso", "field" => "idCursoDicta", "page" => "edit");
+		$lookupTableLinks["profesor_curso_view"]["alumno_profesor_curso.idCursoDicta"]["edit"] = array("table" => "alumno_profesor_curso", "field" => "idCursoDicta", "page" => "edit");
 		if( !isset( $lookupTableLinks["curso"] ) ) {
 			$lookupTableLinks["curso"] = array();
 		}
