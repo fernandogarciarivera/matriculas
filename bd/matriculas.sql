@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 03-06-2024 a las 20:49:00
+-- Tiempo de generación: 05-06-2024 a las 21:08:03
 -- Versión del servidor: 8.0.36
 -- Versión de PHP: 7.4.33
 
@@ -155,6 +155,7 @@ CREATE TABLE IF NOT EXISTS `alumno_profesor_curso` (
   `idCursoDicta` int NOT NULL,
   `idCurso` int NOT NULL,
   `idProfesor` int NOT NULL,
+  `IdHorario` int NOT NULL,
   `estadoCurso` int DEFAULT NULL,
   `estadoMatricula` int DEFAULT NULL,
   PRIMARY KEY (`idMatricula`,`idAlumno`),
@@ -163,22 +164,23 @@ CREATE TABLE IF NOT EXISTS `alumno_profesor_curso` (
   KEY `FKalumno_pro692497` (`idCursoDicta`,`idProfesor`,`idCurso`),
   KEY `FKalumno_pro554239` (`IdmatriculaCab`),
   KEY `FKAlumno_Pro79070` (`idCursoDicta`,`idProfesor`,`idCurso`),
-  KEY `FKAlumno_Pro325116` (`idAlumno`)
+  KEY `FKAlumno_Pro325116` (`idAlumno`),
+  KEY `fk_alumno_profesor_curso_horarios1_idx` (`IdHorario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `alumno_profesor_curso`
 --
 
-INSERT INTO `alumno_profesor_curso` (`IdmatriculaCab`, `idMatricula`, `idAlumno`, `idCursoDicta`, `idCurso`, `idProfesor`, `estadoCurso`, `estadoMatricula`) VALUES
-(1, 1, 20, 36, 3, 8, 0, 0),
-(1, 2, 20, 47, 4, 10, 0, 0),
-(2, 3, 20, 36, 3, 8, 0, 0),
-(2, 4, 20, 47, 4, 10, 0, 0),
-(3, 5, 20, 36, 3, 8, 0, 0),
-(3, 6, 20, 47, 4, 10, 0, 0),
-(4, 7, 20, 36, 3, 8, 0, 0),
-(4, 8, 20, 47, 4, 10, 0, 0);
+INSERT INTO `alumno_profesor_curso` (`IdmatriculaCab`, `idMatricula`, `idAlumno`, `idCursoDicta`, `idCurso`, `idProfesor`, `IdHorario`, `estadoCurso`, `estadoMatricula`) VALUES
+(1, 1, 20, 36, 3, 8, 36, 0, 0),
+(1, 2, 20, 47, 4, 10, 47, 0, 0),
+(2, 3, 20, 36, 3, 8, 36, 0, 0),
+(2, 4, 20, 47, 4, 10, 47, 0, 0),
+(3, 5, 20, 36, 3, 8, 36, 0, 0),
+(3, 6, 20, 47, 4, 10, 47, 0, 0),
+(4, 7, 20, 36, 3, 8, 36, 0, 0),
+(4, 8, 20, 47, 4, 10, 47, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -440,6 +442,35 @@ INSERT INTO `matriculacab` (`IdmatriculaCab`, `documento`, `idAlumno`, `fechaReg
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `mimatricula_curso_horario_view`
+-- (Véase abajo para la vista actual)
+--
+DROP VIEW IF EXISTS `mimatricula_curso_horario_view`;
+CREATE TABLE IF NOT EXISTS `mimatricula_curso_horario_view` (
+`IdmatriculaCab` int
+,`idMatricula` int
+,`idAlumno` int
+,`idCursoDicta` int
+,`idCurso` int
+,`idProfesor` int
+,`IdHorario` int
+,`estadoCurso` int
+,`estadoMatricula` int
+,`Docente` varchar(91)
+,`NombreCurso` varchar(45)
+,`Seccion` char(4)
+,`NRC` char(4)
+,`Academia` varchar(45)
+,`idCicloEscolar` char(5)
+,`numDia` int
+,`txtDia` varchar(10)
+,`HorIni` time
+,`HorFin` time
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `profesor`
 --
 
@@ -552,21 +583,21 @@ INSERT INTO `profesor_curso` (`idCursoDicta`, `idProfesor`, `idCurso`, `fechaIni
 --
 DROP VIEW IF EXISTS `profesor_curso_horario_view`;
 CREATE TABLE IF NOT EXISTS `profesor_curso_horario_view` (
-`Academia` varchar(45)
-,`ApellidosProfesor` varchar(45)
-,`HorFin` time
-,`HorIni` time
-,`idCicloEscolar` char(5)
-,`idCurso` int
-,`idCursoDicta` int
-,`IdHorario` int
+`idCursoDicta` int
 ,`idProfesor` int
-,`NombreCurso` varchar(45)
 ,`NomProfesor` varchar(45)
-,`NRC` char(4)
-,`numDia` int
+,`ApellidosProfesor` varchar(45)
+,`idCurso` int
+,`NombreCurso` varchar(45)
 ,`Seccion` char(4)
+,`NRC` char(4)
+,`Academia` varchar(45)
+,`idCicloEscolar` char(5)
+,`IdHorario` int
+,`numDia` int
 ,`txtDia` varchar(10)
+,`HorIni` time
+,`HorFin` time
 );
 
 -- --------------------------------------------------------
@@ -577,17 +608,27 @@ CREATE TABLE IF NOT EXISTS `profesor_curso_horario_view` (
 --
 DROP VIEW IF EXISTS `profesor_curso_view`;
 CREATE TABLE IF NOT EXISTS `profesor_curso_view` (
-`Academia` varchar(45)
-,`ApellidosProfesor` varchar(45)
-,`idCicloEscolar` char(5)
-,`idCurso` int
-,`idCursoDicta` int
+`idCursoDicta` int
 ,`idProfesor` int
-,`NombreCurso` varchar(45)
 ,`NomProfesor` varchar(45)
-,`NRC` char(4)
+,`ApellidosProfesor` varchar(45)
+,`idCurso` int
+,`NombreCurso` varchar(45)
 ,`Seccion` char(4)
+,`NRC` char(4)
+,`Academia` varchar(45)
+,`idCicloEscolar` char(5)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `mimatricula_curso_horario_view`
+--
+DROP TABLE IF EXISTS `mimatricula_curso_horario_view`;
+
+DROP VIEW IF EXISTS `mimatricula_curso_horario_view`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `mimatricula_curso_horario_view`  AS SELECT `dmat`.`IdmatriculaCab` AS `IdmatriculaCab`, `dmat`.`idMatricula` AS `idMatricula`, `dmat`.`idAlumno` AS `idAlumno`, `dmat`.`idCursoDicta` AS `idCursoDicta`, `dmat`.`idCurso` AS `idCurso`, `dmat`.`idProfesor` AS `idProfesor`, `dmat`.`IdHorario` AS `IdHorario`, `dmat`.`estadoCurso` AS `estadoCurso`, `dmat`.`estadoMatricula` AS `estadoMatricula`, concat(`hor`.`NomProfesor`,' ',`hor`.`ApellidosProfesor`) AS `Docente`, `hor`.`NombreCurso` AS `NombreCurso`, `hor`.`Seccion` AS `Seccion`, `hor`.`NRC` AS `NRC`, `hor`.`Academia` AS `Academia`, `hor`.`idCicloEscolar` AS `idCicloEscolar`, `hor`.`numDia` AS `numDia`, `hor`.`txtDia` AS `txtDia`, `hor`.`HorIni` AS `HorIni`, `hor`.`HorFin` AS `HorFin` FROM (`alumno_profesor_curso` `dmat` join `profesor_curso_horario_view` `hor` on(((`hor`.`idCursoDicta` = `dmat`.`idCursoDicta`) and (`hor`.`idCurso` = `dmat`.`idCurso`) and (`hor`.`idProfesor` = `dmat`.`idProfesor`) and (`hor`.`IdHorario` = `dmat`.`IdHorario`)))) ;
 
 -- --------------------------------------------------------
 
@@ -617,6 +658,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- Filtros para la tabla `alumno_profesor_curso`
 --
 ALTER TABLE `alumno_profesor_curso`
+  ADD CONSTRAINT `fk_alumno_profesor_curso_horarios1` FOREIGN KEY (`IdHorario`) REFERENCES `horarios` (`IdHorario`),
   ADD CONSTRAINT `FKalumno_pro298549` FOREIGN KEY (`idAlumno`) REFERENCES `alumno` (`idAlumno`),
   ADD CONSTRAINT `FKalumno_pro554239` FOREIGN KEY (`IdmatriculaCab`) REFERENCES `matriculacab` (`IdmatriculaCab`),
   ADD CONSTRAINT `FKalumno_pro692497` FOREIGN KEY (`idCursoDicta`,`idProfesor`,`idCurso`) REFERENCES `profesor_curso` (`idCursoDicta`, `idProfesor`, `idCurso`);

@@ -62,13 +62,11 @@ function BeforeShowList(&$xt, &$templatefile, &$pageObject)
 
 		
 $master = $pageObject->getMasterRecord();
-if ( $master != Null or $master !="" ) {
-	$pageObject->hideItem("delete");
-	$pageObject->hideItem("add");
-	//code to hide buttons
-}
-// Place event code here.
-// Use "Add Action" button to add code snippets.
+	if ($master != Null or $master !="") {
+		$pageObject->hideItem("delete");
+		$pageObject->hideItem("add");
+		//code to hide buttons
+	}
 ;		
 } // function BeforeShowList
 
