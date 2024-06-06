@@ -9,10 +9,10 @@ $tdatahorarios[".OwnerID"] = "";
 $tdatahorarios[".OriginalTable"] = "horarios";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
 
-$tdatahorarios[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
-$tdatahorarios[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatahorarios[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
+$tdatahorarios[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdatahorarios[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -51,6 +51,7 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelshorarios["Spanish"]["HorFin"] = "Hor Fin";
 	$fieldToolTipshorarios["Spanish"]["HorFin"] = "";
 	$placeHoldershorarios["Spanish"]["HorFin"] = "";
+	$pageTitleshorarios["Spanish"]["add"] = "Añadir nuevo";
 	if (count($fieldToolTipshorarios["Spanish"]))
 		$tdatahorarios[".isUseToolTips"] = true;
 }
@@ -162,7 +163,7 @@ $tdatahorarios[".buttonsAdded"] = false;
 $tdatahorarios[".addPageEvents"] = false;
 
 // use timepicker for search panel
-$tdatahorarios[".isUseTimeForSearch"] = false;
+$tdatahorarios[".isUseTimeForSearch"] = true;
 
 
 $tdatahorarios[".badgeColor"] = "3cb371";
@@ -1204,7 +1205,7 @@ $tdatahorarios[".hideMobileList"] = array();
 	$edata = array("EditFormat" => "Time");
 
 	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+		$edata["weekdayMessage"] = array("message" => "Invalid week day", "messageType" => "Text");
 	$edata["weekdays"] = "[]";
 
 
@@ -1242,10 +1243,10 @@ $tdatahorarios[".hideMobileList"] = array();
 	
 			
 				$hours = 24;
-	$edata["FormatTimeAttrs"] = array("useTimePicker" => 0,
+	$edata["FormatTimeAttrs"] = array("useTimePicker" => 1,
 									  "hours" => $hours,
 									  "minutes" => 1,
-									  "showSeconds" => 0);
+									  "showSeconds" => 1);
 
 	
 	
@@ -1380,10 +1381,10 @@ $tdatahorarios[".hideMobileList"] = array();
 	
 			
 				$hours = 24;
-	$edata["FormatTimeAttrs"] = array("useTimePicker" => 0,
+	$edata["FormatTimeAttrs"] = array("useTimePicker" => 1,
 									  "hours" => $hours,
 									  "minutes" => 1,
-									  "showSeconds" => 0);
+									  "showSeconds" => 1);
 
 	
 	

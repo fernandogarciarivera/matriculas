@@ -4,7 +4,7 @@
 <?php
     include ('funciones/mihead.php');
 
-	include('funciones/configLogin.php');
+	//include('funciones/configLogin.php');
 	$login_button = '';
 	
 	$error = "";
@@ -52,11 +52,11 @@
                     <form method="post" data-bs-theme="light">
 
 						<?php 
-							if (!isset($_SESSION['user_name'])) {
+							/* if (!isset($_SESSION['user_name'])) {
 								echo '<a class="w-100 p-0 mb-3" href="'. htmlspecialchars($authUrl) .'">
 									<img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" alt="Ingresar con Google">
 								</a>';
-							}
+							} */
 						?>
 						
                         <div class="mb-3"><input class="shadow form-control" type="email" id="email" name="email" placeholder="Email"></div>

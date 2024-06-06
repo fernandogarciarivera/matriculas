@@ -9,10 +9,10 @@ $tdatamatriculacab[".OwnerID"] = "";
 $tdatamatriculacab[".OriginalTable"] = "matriculacab";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 
-$tdatamatriculacab[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
-$tdatamatriculacab[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatamatriculacab[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" );
+$tdatamatriculacab[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdatamatriculacab[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -39,6 +39,8 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelsmatriculacab["Spanish"]["fechaRegistro"] = "Fecha Registro";
 	$fieldToolTipsmatriculacab["Spanish"]["fechaRegistro"] = "";
 	$placeHoldersmatriculacab["Spanish"]["fechaRegistro"] = "";
+	$pageTitlesmatriculacab["Spanish"]["add"] = "Añadir nuevo";
+	$pageTitlesmatriculacab["Spanish"]["edit"] = "Editar [{%documento}]";
 	if (count($fieldToolTipsmatriculacab["Spanish"]))
 		$tdatamatriculacab[".isUseToolTips"] = true;
 }

@@ -949,6 +949,14 @@ function GetDefaultValue($field, $ptype, $table="")
 	global $strTableName;
 	if(!$table)
 		$table=$strTableName;
+				if($table=="horarios" && $field=="HorIni")
+	{
+		return now();
+	}
+				if($table=="horarios" && $field=="HorFin")
+	{
+		return now();
+	}
 	return "";
 }
 

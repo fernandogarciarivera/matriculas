@@ -48,7 +48,6 @@ function DBLookup($sql)
 class tDAL
 {
 	var $tblmatriculas_at_127_0_0_1__alumno;
-	var $tblmatriculas_at_127_0_0_1__alumno_profesor_curso;
 	var $tblmatriculas_at_127_0_0_1__curso;
 	var $tblmatriculas_at_127_0_0_1__horarios;
 	var $tblmatriculas_at_127_0_0_1__matriculacab;
@@ -64,7 +63,6 @@ class tDAL
 		if($this->lstTables)
 			return;
 		$this->lstTables[] = array("name" => "alumno", "varname" => "matriculas_at_127_0_0_1__alumno", "altvarname" => "alumno", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
-		$this->lstTables[] = array("name" => "alumno_profesor_curso", "varname" => "matriculas_at_127_0_0_1__alumno_profesor_curso", "altvarname" => "alumno_profesor_curso", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 		$this->lstTables[] = array("name" => "curso", "varname" => "matriculas_at_127_0_0_1__curso", "altvarname" => "curso", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 		$this->lstTables[] = array("name" => "horarios", "varname" => "matriculas_at_127_0_0_1__horarios", "altvarname" => "horarios", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 		$this->lstTables[] = array("name" => "matriculacab", "varname" => "matriculas_at_127_0_0_1__matriculacab", "altvarname" => "matriculacab", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");

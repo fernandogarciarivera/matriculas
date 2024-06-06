@@ -39,8 +39,6 @@
 	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
 	class=" r-ori-vert			col-md-12
 	">
-	 
-		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" >{$pagetitlelabel horarios edit}</h2>
 	</div>					</div>
 	</div>		
 {END top_block}
@@ -79,7 +77,11 @@
 
  
 	 
-												<table 
+												{BEGIN mastertable_block}
+<div data-itemtype="master_info" data-itemid="master_info" {$item_master_info} data-pageid="{$pageid}">
+	{$showmasterfile}
+</div>
+{END mastertable_block}											<table 
 	data-body-align="center"
 	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
 	class="r-edit-form" cellpadding="0" cellspacing="0" 
@@ -258,14 +260,6 @@
 		Reiniciar		
 		</a>
 	</li>
-							{BEGIN view_page_button}
-	<li data-itemtype="edit_view" data-itemid="edit_view" {$item_edit_view} data-pageid="{$pageid}" data-small >
-				<a  {$view_page_button_attrs}  title="" >
-				
-		Ver		
-		</a>
-	</li>
-{END view_page_button}
 					</ul>
 	</span>
 </span>

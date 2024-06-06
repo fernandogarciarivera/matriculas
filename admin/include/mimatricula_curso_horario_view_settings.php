@@ -9,10 +9,10 @@ $tdatamimatricula_curso_horario_view[".OwnerID"] = "";
 $tdatamimatricula_curso_horario_view[".OriginalTable"] = "mimatricula_curso_horario_view";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
 
-$tdatamimatricula_curso_horario_view[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
-$tdatamimatricula_curso_horario_view[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatamimatricula_curso_horario_view[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
+$tdatamimatricula_curso_horario_view[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdatamimatricula_curso_horario_view[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -84,6 +84,8 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelsmimatricula_curso_horario_view["Spanish"]["HorFin"] = "Hor Fin";
 	$fieldToolTipsmimatricula_curso_horario_view["Spanish"]["HorFin"] = "";
 	$placeHoldersmimatricula_curso_horario_view["Spanish"]["HorFin"] = "";
+	$pageTitlesmimatricula_curso_horario_view["Spanish"]["add"] = "Añadir nuevo";
+	$pageTitlesmimatricula_curso_horario_view["Spanish"]["edit"] = "Editar";
 	if (count($fieldToolTipsmimatricula_curso_horario_view["Spanish"]))
 		$tdatamimatricula_curso_horario_view[".isUseToolTips"] = true;
 }

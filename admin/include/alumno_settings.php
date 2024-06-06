@@ -9,10 +9,10 @@ $tdataalumno[".OwnerID"] = "";
 $tdataalumno[".OriginalTable"] = "alumno";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 
-$tdataalumno[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
-$tdataalumno[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdataalumno[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" );
+$tdataalumno[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdataalumno[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -57,6 +57,8 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelsalumno["Spanish"]["miFoto"] = "Mi Foto";
 	$fieldToolTipsalumno["Spanish"]["miFoto"] = "";
 	$placeHoldersalumno["Spanish"]["miFoto"] = "";
+	$pageTitlesalumno["Spanish"]["edit"] = "Editar Alumno, [{%Nombres} {%Apellidos}]";
+	$pageTitlesalumno["Spanish"]["add"] = "Añadir nuevo";
 	if (count($fieldToolTipsalumno["Spanish"]))
 		$tdataalumno[".isUseToolTips"] = true;
 }

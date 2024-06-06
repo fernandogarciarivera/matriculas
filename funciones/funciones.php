@@ -197,7 +197,7 @@ function registrarAlumno($conexion, $nombres, $apellidos, $email, $password) {
 
 function loginAccesoMatricula($conexion, $email, $password) {
 	// Validar que el email no esté registrado
-    $consulta = "SELECT * FROM alumno WHERE Email = '$email' and Password = '$password'";
+    echo $consulta = "SELECT * FROM alumno WHERE Email = '$email' and Password = '$password'";
 	$resultado = $conexion->query($consulta);
     if ($resultado->num_rows > 0) {
 		while ($fila = $resultado->fetch_assoc()) {
@@ -208,7 +208,7 @@ function loginAccesoMatricula($conexion, $email, $password) {
 			$_SESSION['Email'] = htmlspecialchars($fila['Email']);
 			$_SESSION['usuario'] = $fila['idAlumno'];
 
-			echo $_SESSION['idAlumno'];
+			//echo $_SESSION['idAlumno'];
 
         }
         return "Registro exitoso.";
@@ -235,7 +235,7 @@ function grabarMatricula($conexion, $idAlumno, $selectedHorarios) {
             $idProfesor = $horario['idProfesor'];
             $idHorario = $horario['idHorario'];
 
-            $consultaDetalle = "INSERT INTO alumno_profesor_curso (IdmatriculaCab, idAlumno, idCursoDicta, idCurso, idProfesor, estadoCurso, estadoMatricula) VALUES ('$idMatriculaCab', '$idAlumno', '$idCursoDicta', '$idCurso', '$idProfesor', 0, 0)";
+            $consultaDetalle = "INSERT INTO alumno_profesor_curso (IdmatriculaCab, idAlumno, idCursoDicta, idCurso, idProfesor, estadoCurso, estadoMatricula, idHorario) VALUES ('$idMatriculaCab', '$idAlumno', '$idCursoDicta', '$idCurso', '$idProfesor', 0, 0, '$idHorario')";
 
             if (!$conexion->query($consultaDetalle)) {
                 throw new Exception("Error al insertar en alumno_profesor_curso.");
@@ -267,5 +267,57 @@ function parse_custom_json($json) {
     return $result;
 }
 
+function datosCursosMAtriculas($conexion, $idCurso, $idProfesor) {
+	$consulta = "SELECT idCursoDicta, idCurso, NombreCurso, Seccion, idCicloEscolar, idProfesor, CONCAT(NomProfesor, ' ', ApellidosProfesor) AS Docente, IdHorario, txtDia, HorIni, HorFin FROM profesor_curso_horario_view WHERE (".$idCurso." = 0 OR idCurso = ".$idCurso.") AND (".$idProfesor." = 0 OR idProfesor = ".$idProfesor.") ORDER BY idCurso, idProfesor, IdHorario";
+    $resultado = $conexion->query($consulta);
+	
+	$cursos = [];
+
+	if ($resultado->num_rows > 0) {
+		while ($fila = $resultado->fetch_assoc()) {
+			$idCursoDicta = $fila['idCurso'];
+			$idCurso = $fila['idCurso'];
+			$idCursoDictaReal = $fila['idCursoDicta'];
+			$idProfesor = $fila['idProfesor'];
+
+			// Asegurarse de que los datos estén en UTF-8
+			//$fila = array_map('utf8_encode', $fila);
+
+			// Si el curso no existe en la estructura, agregarlo
+			if (!isset($cursos[$idCursoDicta])) {
+				$cursos[$idCursoDicta] = [
+					'idCursoDicta' => $idCursoDicta,
+					'NombreCurso' => htmlspecialchars($fila['NombreCurso']),
+					'Seccion' => $fila['Seccion'],
+					'idCicloEscolar' => $fila['idCicloEscolar'],
+					'Docentes' => []
+				];
+			}
+
+			// Si el docente no existe en la estructura del curso, agregarlo
+			if (!isset($cursos[$idCursoDicta]['Docentes'][$idProfesor])) {
+				$cursos[$idCursoDicta]['Docentes'][$idProfesor] = [
+					'idProfesor' => $idProfesor,
+					'Docente' => htmlspecialchars($fila['Docente']),
+					'Horarios' => []
+				];
+			}
+
+			// Agregar horario al docente
+			$cursos[$idCursoDicta]['Docentes'][$idProfesor]['Horarios'][] = [
+				'idCursoDicta' => $idCursoDictaReal,
+				'idCurso' => $idCurso,
+				'idProfesor' => $idProfesor,
+				'IdHorario' => $fila['IdHorario'],
+				'txtDia' => $fila['txtDia'],
+				'HorIni' => $fila['HorIni'],
+				'HorFin' => $fila['HorFin']
+			];
+		}
+	}
+	
+	return $cursos;
+	
+}
 ?>
 

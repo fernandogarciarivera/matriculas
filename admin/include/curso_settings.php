@@ -9,10 +9,10 @@ $tdatacurso[".OwnerID"] = "";
 $tdatacurso[".OriginalTable"] = "curso";
 
 
-$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\",\"view\":\"view\"}" );
+$defaultPages = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 
-$tdatacurso[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
-$tdatacurso[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
+$tdatacurso[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" );
+$tdatacurso[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdatacurso[".defaultPages"] = $defaultPages;
 
 //	field labels
@@ -57,6 +57,8 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelscurso["Spanish"]["bitacora"] = "Bitacora";
 	$fieldToolTipscurso["Spanish"]["bitacora"] = "";
 	$placeHolderscurso["Spanish"]["bitacora"] = "";
+	$pageTitlescurso["Spanish"]["edit"] = "Editar Curso, [{%NombreCurso} - {%IdCicloEscolar}]";
+	$pageTitlescurso["Spanish"]["add"] = "Añadir nuevo";
 	if (count($fieldToolTipscurso["Spanish"]))
 		$tdatacurso[".isUseToolTips"] = true;
 }

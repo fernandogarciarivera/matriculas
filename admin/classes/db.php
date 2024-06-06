@@ -403,7 +403,6 @@ class DB
 		if( "matriculas_at_127_0_0_1" == $conn->connId )
 		{
 			$dalTables[$conn->connId][] = array("name" => "alumno", "varname" => "matriculas_at_127_0_0_1__alumno", "altvarname" => "alumno", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
-			$dalTables[$conn->connId][] = array("name" => "alumno_profesor_curso", "varname" => "matriculas_at_127_0_0_1__alumno_profesor_curso", "altvarname" => "alumno_profesor_curso", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 			$dalTables[$conn->connId][] = array("name" => "curso", "varname" => "matriculas_at_127_0_0_1__curso", "altvarname" => "curso", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 			$dalTables[$conn->connId][] = array("name" => "horarios", "varname" => "matriculas_at_127_0_0_1__horarios", "altvarname" => "horarios", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");
 			$dalTables[$conn->connId][] = array("name" => "matriculacab", "varname" => "matriculas_at_127_0_0_1__matriculacab", "altvarname" => "matriculacab", "connId" => "matriculas_at_127_0_0_1", "schema" => "", "connName" => "matriculas at localhost");

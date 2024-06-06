@@ -1,25 +1,23 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+//header('Content-Type: text/html; charset=utf-8');
 mb_internal_encoding('UTF-8');
 ini_set("default_charset", "UTF-8");
 
+header('Content-Type: application/json');
+
 // Datos de conexión a la base de datos
 require_once 'conexion.php';
-
-header('Content-Type: application/json');
 
 // Obtener el ID del curso
 $idCurso = isset($_GET['idCurso']) ? intval($_GET['idCurso']) : 0;
 $idProfesor = isset($_GET['idProfesor']) ? intval($_GET['idProfesor']) : 0;
 
+$cursos = [];
+
 // Construir la consulta SQL según el parámetro recibido
-$consulta = "SELECT idCursoDicta, idCurso, NombreCurso, Seccion, idCicloEscolar, idProfesor, CONCAT(NomProfesor, ' ', ApellidosProfesor) AS Docente, IdHorario, txtDia, HorIni, HorFin
-        FROM profesor_curso_horario_view 
-        WHERE ($idCurso = 0 OR idCurso = $idCurso) AND ($idProfesor = 0 OR idProfesor = $idProfesor)
-        ORDER BY idCurso, idProfesor, IdHorario";
+$consulta = "SELECT idCursoDicta, idCurso, NombreCurso, Seccion, idCicloEscolar, idProfesor, CONCAT(NomProfesor, ' ', ApellidosProfesor) AS Docente, IdHorario, txtDia, HorIni, HorFin FROM profesor_curso_horario_view WHERE (".$idCurso." = 0 OR idCurso = ".$idCurso.") AND (".$idProfesor." = 0 OR idProfesor = ".$idProfesor.") ORDER BY idCurso, idProfesor, IdHorario";
 
 // Inicializar estructura anidada
-$cursos = [];
 $resultado = $conexion->query($consulta);
 if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
@@ -35,7 +33,7 @@ if ($resultado->num_rows > 0) {
         if (!isset($cursos[$idCursoDicta])) {
             $cursos[$idCursoDicta] = [
                 'idCursoDicta' => $idCursoDicta,
-                'NombreCurso' => htmlentities($fila['NombreCurso']),
+                'NombreCurso' => htmlspecialchars($fila['NombreCurso']),
                 'Seccion' => $fila['Seccion'],
                 'idCicloEscolar' => $fila['idCicloEscolar'],
                 'Docentes' => []
@@ -46,7 +44,7 @@ if ($resultado->num_rows > 0) {
         if (!isset($cursos[$idCursoDicta]['Docentes'][$idProfesor])) {
             $cursos[$idCursoDicta]['Docentes'][$idProfesor] = [
                 'idProfesor' => $idProfesor,
-                'Docente' => htmlentities($fila['Docente']),
+                'Docente' => htmlspecialchars($fila['Docente']),
                 'Horarios' => []
             ];
         }

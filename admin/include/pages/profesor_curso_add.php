@@ -1,5 +1,6 @@
 <?php
-			$optionsArray = array( 'details' => array( 'horarios' => array( 'displayPreview' => 1 ) ),
+			$optionsArray = array( 'details' => array( 'horarios' => array( 'displayPreview' => 1,
+'previewPageId' => 'list' ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'idProfesor',
 'idCurso',
@@ -133,7 +134,10 @@
 'columnCount' => 1,
 'inlineLabels' => false,
 'separateLabels' => false ) ),
-'items' => array( 'add_header' => array( 'type' => 'add_header' ),
+'items' => array( 'add_header' => array( 'type' => 'add_header',
+'title' => array( 'page' => 'add',
+'table' => 'profesor_curso',
+'type' => 7 ) ),
 'add_back_list' => array( 'type' => 'add_back_list' ),
 'add_cancel' => array( 'type' => 'add_cancel' ),
 'add_message' => array( 'type' => 'add_message' ),
@@ -153,7 +157,8 @@
 'details_preview' => array( 'type' => 'details_preview',
 'table' => 'horarios',
 'items' => array(  ),
-'popup' => false ) ),
+'popup' => false,
+'pageId' => 'list' ) ),
 'dbProps' => array(  ),
 'version' => 4 );
 		?>

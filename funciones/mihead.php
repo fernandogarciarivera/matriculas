@@ -1,7 +1,8 @@
 <?php
 	$current_pageSession = trim(basename($_SERVER['PHP_SELF']));
 
-    if($current_pageSession !== 'login.php') session_start();
+    //if($current_pageSession !== 'login.php')
+    session_start();
 
     header('Content-Type: text/html; charset=utf-8');
     mb_internal_encoding('UTF-8');
