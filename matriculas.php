@@ -60,7 +60,7 @@
 			method: 'GET',
 			data: { idProfesor: idProfesor, idCurso: idCurso },
 			success: function(response) {
-				renderTable(response.datos);
+				renderTable(JSON.parse(response));
 			},
 			error: function() {
 				alert('Error al obtener la información del curso.');

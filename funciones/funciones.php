@@ -251,24 +251,9 @@ function grabarMatricula($conexion, $idAlumno, $selectedHorarios) {
     }
 }
 
-function parse_custom_json($json) {
-    $pattern = '/\{[^{}]*\}/';
-    preg_match($pattern, $json, $matches);
-    $json = $matches[0];
-
-    $json = str_replace(['{', '}', ':', '"'], '', $json);
-    $json_parts = explode(',', $json);
-
-    $result = [];
-    foreach ($json_parts as $part) {
-        list($key, $value) = explode(':', $part);
-        $result[trim($key)] = trim($value);
-    }
-    return $result;
-}
-
-function datosCursosMAtriculas($conexion, $idCurso, $idProfesor) {
+function jsonCursosMAtriculas($conexion, $idCurso, $idProfesor) {
 	$consulta = "SELECT idCursoDicta, idCurso, NombreCurso, Seccion, idCicloEscolar, idProfesor, CONCAT(NomProfesor, ' ', ApellidosProfesor) AS Docente, IdHorario, txtDia, HorIni, HorFin FROM profesor_curso_horario_view WHERE (".$idCurso." = 0 OR idCurso = ".$idCurso.") AND (".$idProfesor." = 0 OR idProfesor = ".$idProfesor.") ORDER BY idCurso, idProfesor, IdHorario";
+	
     $resultado = $conexion->query($consulta);
 	
 	$cursos = [];
@@ -279,9 +264,6 @@ function datosCursosMAtriculas($conexion, $idCurso, $idProfesor) {
 			$idCurso = $fila['idCurso'];
 			$idCursoDictaReal = $fila['idCursoDicta'];
 			$idProfesor = $fila['idProfesor'];
-
-			// Asegurarse de que los datos estén en UTF-8
-			//$fila = array_map('utf8_encode', $fila);
 
 			// Si el curso no existe en la estructura, agregarlo
 			if (!isset($cursos[$idCursoDicta])) {

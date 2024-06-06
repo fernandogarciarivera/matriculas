@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 05-06-2024 a las 21:08:03
+-- Tiempo de generación: 06-06-2024 a las 14:20:42
 -- Versión del servidor: 8.0.36
 -- Versión de PHP: 7.4.33
 
@@ -26,7 +26,7 @@ DELIMITER $$
 -- Procedimientos
 --
 DROP PROCEDURE IF EXISTS `AssignCoursesToProfessors`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AssignCoursesToProfessors` ()   BEGIN
+CREATE  PROCEDURE `AssignCoursesToProfessors` ()   BEGIN
     
     -- Bucle para asignar cursos a profesores
     DECLARE done INT DEFAULT FALSE;
@@ -628,7 +628,7 @@ CREATE TABLE IF NOT EXISTS `profesor_curso_view` (
 DROP TABLE IF EXISTS `mimatricula_curso_horario_view`;
 
 DROP VIEW IF EXISTS `mimatricula_curso_horario_view`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `mimatricula_curso_horario_view`  AS SELECT `dmat`.`IdmatriculaCab` AS `IdmatriculaCab`, `dmat`.`idMatricula` AS `idMatricula`, `dmat`.`idAlumno` AS `idAlumno`, `dmat`.`idCursoDicta` AS `idCursoDicta`, `dmat`.`idCurso` AS `idCurso`, `dmat`.`idProfesor` AS `idProfesor`, `dmat`.`IdHorario` AS `IdHorario`, `dmat`.`estadoCurso` AS `estadoCurso`, `dmat`.`estadoMatricula` AS `estadoMatricula`, concat(`hor`.`NomProfesor`,' ',`hor`.`ApellidosProfesor`) AS `Docente`, `hor`.`NombreCurso` AS `NombreCurso`, `hor`.`Seccion` AS `Seccion`, `hor`.`NRC` AS `NRC`, `hor`.`Academia` AS `Academia`, `hor`.`idCicloEscolar` AS `idCicloEscolar`, `hor`.`numDia` AS `numDia`, `hor`.`txtDia` AS `txtDia`, `hor`.`HorIni` AS `HorIni`, `hor`.`HorFin` AS `HorFin` FROM (`alumno_profesor_curso` `dmat` join `profesor_curso_horario_view` `hor` on(((`hor`.`idCursoDicta` = `dmat`.`idCursoDicta`) and (`hor`.`idCurso` = `dmat`.`idCurso`) and (`hor`.`idProfesor` = `dmat`.`idProfesor`) and (`hor`.`IdHorario` = `dmat`.`IdHorario`)))) ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `mimatricula_curso_horario_view`  AS SELECT `dmat`.`IdmatriculaCab` AS `IdmatriculaCab`, `dmat`.`idMatricula` AS `idMatricula`, `dmat`.`idAlumno` AS `idAlumno`, `dmat`.`idCursoDicta` AS `idCursoDicta`, `dmat`.`idCurso` AS `idCurso`, `dmat`.`idProfesor` AS `idProfesor`, `dmat`.`IdHorario` AS `IdHorario`, `dmat`.`estadoCurso` AS `estadoCurso`, `dmat`.`estadoMatricula` AS `estadoMatricula`, concat(`hor`.`NomProfesor`,' ',`hor`.`ApellidosProfesor`) AS `Docente`, `hor`.`NombreCurso` AS `NombreCurso`, `hor`.`Seccion` AS `Seccion`, `hor`.`NRC` AS `NRC`, `hor`.`Academia` AS `Academia`, `hor`.`idCicloEscolar` AS `idCicloEscolar`, `hor`.`numDia` AS `numDia`, `hor`.`txtDia` AS `txtDia`, `hor`.`HorIni` AS `HorIni`, `hor`.`HorFin` AS `HorFin` FROM (`alumno_profesor_curso` `dmat` join `profesor_curso_horario_view` `hor` on(((`hor`.`idCursoDicta` = `dmat`.`idCursoDicta`) and (`hor`.`idCurso` = `dmat`.`idCurso`) and (`hor`.`idProfesor` = `dmat`.`idProfesor`) and (`hor`.`IdHorario` = `dmat`.`IdHorario`)))) ;
 
 -- --------------------------------------------------------
 
@@ -638,7 +638,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `profesor_curso_horario_view`;
 
 DROP VIEW IF EXISTS `profesor_curso_horario_view`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `profesor_curso_horario_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `pc`.`NomProfesor` AS `NomProfesor`, `pc`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `pc`.`NombreCurso` AS `NombreCurso`, `pc`.`Seccion` AS `Seccion`, `pc`.`NRC` AS `NRC`, `pc`.`Academia` AS `Academia`, `pc`.`idCicloEscolar` AS `idCicloEscolar`, `h`.`IdHorario` AS `IdHorario`, `h`.`numDia` AS `numDia`, `h`.`txtDia` AS `txtDia`, `h`.`HorIni` AS `HorIni`, `h`.`HorFin` AS `HorFin` FROM (`profesor_curso_view` `pc` join `horarios` `h` on(((`h`.`idCursoDicta` = `pc`.`idCursoDicta`) and (`h`.`idProfesor` = `pc`.`idProfesor`) and (`h`.`idCurso` = `pc`.`idCurso`)))) ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `profesor_curso_horario_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `pc`.`NomProfesor` AS `NomProfesor`, `pc`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `pc`.`NombreCurso` AS `NombreCurso`, `pc`.`Seccion` AS `Seccion`, `pc`.`NRC` AS `NRC`, `pc`.`Academia` AS `Academia`, `pc`.`idCicloEscolar` AS `idCicloEscolar`, `h`.`IdHorario` AS `IdHorario`, `h`.`numDia` AS `numDia`, `h`.`txtDia` AS `txtDia`, `h`.`HorIni` AS `HorIni`, `h`.`HorFin` AS `HorFin` FROM (`profesor_curso_view` `pc` join `horarios` `h` on(((`h`.`idCursoDicta` = `pc`.`idCursoDicta`) and (`h`.`idProfesor` = `pc`.`idProfesor`) and (`h`.`idCurso` = `pc`.`idCurso`)))) ;
 
 -- --------------------------------------------------------
 
@@ -648,7 +648,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `profesor_curso_view`;
 
 DROP VIEW IF EXISTS `profesor_curso_view`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `profesor_curso_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `p`.`NomProfesor` AS `NomProfesor`, `p`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `c`.`NombreCurso` AS `NombreCurso`, `c`.`Seccion` AS `Seccion`, `c`.`NRC` AS `NRC`, `c`.`Academia` AS `Academia`, `c`.`idCicloEscolar` AS `idCicloEscolar` FROM ((`profesor_curso` `pc` join `profesor` `p` on((`p`.`idProfesor` = `pc`.`idProfesor`))) join `curso` `c` on((`c`.`idCurso` = `pc`.`idCurso`))) ORDER BY `c`.`idCicloEscolar` ASC ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `profesor_curso_view`  AS SELECT `pc`.`idCursoDicta` AS `idCursoDicta`, `pc`.`idProfesor` AS `idProfesor`, `p`.`NomProfesor` AS `NomProfesor`, `p`.`ApellidosProfesor` AS `ApellidosProfesor`, `pc`.`idCurso` AS `idCurso`, `c`.`NombreCurso` AS `NombreCurso`, `c`.`Seccion` AS `Seccion`, `c`.`NRC` AS `NRC`, `c`.`Academia` AS `Academia`, `c`.`idCicloEscolar` AS `idCicloEscolar` FROM ((`profesor_curso` `pc` join `profesor` `p` on((`p`.`idProfesor` = `pc`.`idProfesor`))) join `curso` `c` on((`c`.`idCurso` = `pc`.`idCurso`))) ORDER BY `c`.`idCicloEscolar` ASC ;
 
 --
 -- Restricciones para tablas volcadas
